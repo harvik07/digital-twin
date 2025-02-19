@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Statistics</title>
+</head>
+<body>
+    <h1>Summary Statistics</h1>
+
+    <div>
+        {{ summary_stats|safe }}  <!-- Displays summary stats -->
+    </div>
+
+    <h2>Download Cleaned File</h2>
+    <a href="{{ url_for('download_file', filename=filename) }}">
+        <button>Download Cleaned File</button>
+    </a>
+
+    <br><br>
+    <a href="{{ url_for('home') }}">Upload another file</a>
+</body>
+</html>
