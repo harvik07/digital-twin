@@ -6,19 +6,22 @@
     <title>File Upload</title>
 </head>
 <body>
-    <h1>Upload CSV or XLSX File</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
+    <h1>Upload Your Warehouse Data</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload & Clean</button>
     </form>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+
+    {% if summary %}
+        <h2>Summary Statistics</h2>
+        {{ summary|safe }}
+
+        <h3>Download Cleaned File</h3>
+        <a href="{{ url_for('static', filename='cleaned_files/' + cleaned_filename) }}" download>Download</a>
+
+        <h3>Proceed to Visualization</h3>
+        <a href="{{ url_for('visualization', filename=cleaned_filename) }}">Go to Visualization</a>
+    {% endif %}
 </body>
 </html>

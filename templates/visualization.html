@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+</head>
+<body>
+    <h1>Data Visualization for {{ filename }}</h1>
+
+    <form method="POST">
+        <label for="chart_type">Select Chart Type:</label>
+        <select name="chart_type" id="chart_type" required>
+            <option value="bar">Bar Chart</option>
+            <option value="line">Line Chart</option>
+            <option value="pie">Pie Chart</option>
+            <option value="heatmap">Heatmap</option>
+            <option value="histogram">Histogram</option>
+            <option value="scatter">Scatter Plot</option>
+            <option value="box">Box Plot</option>
+        </select>
+
+        <label for="x_column">Select X Column:</label>
+        <select name="x_column" id="x_column" required>
+            {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="y_column">Select Y Column:</label>
+        <select name="y_column" id="y_column" required>
+            {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Generate Chart</button>
+    </form>
+
+    {% if chart_url %}
+        <h2>Generated Chart</h2>
+        <img src="{{ url_for('static', filename='charts/' + chart_url) }}" alt="Chart">
+        
+        <h3>Download Chart</h3>
+        <a href="{{ url_for('static', filename='charts/' + chart_url) }}" download>Download Chart</a>
+    {% endif %}
+</body>
+</html>

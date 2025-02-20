@@ -1,0 +1,62 @@
+2025-02-20 10:01:12,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-20 10:01:12,096 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-20 10:01:12,098 - INFO -  * Restarting with stat
+2025-02-20 10:01:12,666 - WARNING -  * Debugger is active!
+2025-02-20 10:01:12,671 - INFO -  * Debugger PIN: 745-636-486
+2025-02-20 10:01:19,388 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:19] "GET / HTTP/1.1" 200 -
+2025-02-20 10:01:19,444 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:19] "GET / HTTP/1.1" 200 -
+2025-02-20 10:01:26,651 - INFO - \u2705 File uploaded: iris_dataset_45.csv
+2025-02-20 10:01:26,652 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:26] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-02-20 10:01:26,656 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\iris_dataset_45.csv
+2025-02-20 10:01:26,681 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_iris_dataset_45.csv
+2025-02-20 10:01:26,694 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:26] "GET /clean/iris_dataset_45.csv HTTP/1.1" 200 -
+2025-02-20 10:01:29,607 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:29] "GET / HTTP/1.1" 200 -
+2025-02-20 10:01:38,769 - INFO - \u2705 File uploaded: cat_harvik.csv
+2025-02-20 10:01:38,774 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:38] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-02-20 10:01:38,777 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\cat_harvik.csv
+2025-02-20 10:01:38,855 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_cat_harvik.csv
+2025-02-20 10:01:38,936 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:38] "GET /clean/cat_harvik.csv HTTP/1.1" 200 -
+2025-02-20 10:01:47,638 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\cat_harvik.csv
+2025-02-20 10:01:47,734 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_cat_harvik.csv
+2025-02-20 10:01:47,840 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:47] "GET /clean/cat_harvik.csv HTTP/1.1" 200 -
+2025-02-20 10:01:51,583 - INFO - 127.0.0.1 - - [20/Feb/2025 10:01:51] "GET / HTTP/1.1" 200 -
+2025-02-20 10:45:29,717 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\iris_dataset_45.csv
+2025-02-20 10:45:29,892 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_iris_dataset_45.csv
+2025-02-20 10:45:29,925 - INFO - 127.0.0.1 - - [20/Feb/2025 10:45:29] "GET /clean/iris_dataset_45.csv HTTP/1.1" 200 -
+2025-02-20 10:51:05,665 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-20 10:51:05,665 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-20 10:51:05,668 - INFO -  * Restarting with stat
+2025-02-20 10:51:06,243 - WARNING -  * Debugger is active!
+2025-02-20 10:51:06,247 - INFO -  * Debugger PIN: 745-636-486
+2025-02-20 10:51:13,896 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:13] "GET / HTTP/1.1" 200 -
+2025-02-20 10:51:21,618 - INFO - \u2705 File uploaded: harvik_sample_iris.csv
+2025-02-20 10:51:21,619 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:21] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-02-20 10:51:21,624 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\harvik_sample_iris.csv
+2025-02-20 10:51:21,646 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_harvik_sample_iris.csv
+2025-02-20 10:51:21,663 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:21] "GET /clean/harvik_sample_iris.csv HTTP/1.1" 200 -
+2025-02-20 10:51:33,384 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:33] "GET / HTTP/1.1" 200 -
+2025-02-20 10:51:56,600 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:56] "GET / HTTP/1.1" 200 -
+2025-02-20 10:51:56,789 - INFO - 127.0.0.1 - - [20/Feb/2025 10:51:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-20 10:52:03,791 - INFO - \u2705 File uploaded: harvik_sample_iris.csv
+2025-02-20 10:52:03,792 - INFO - 127.0.0.1 - - [20/Feb/2025 10:52:03] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-02-20 10:52:03,795 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\harvik_sample_iris.csv
+2025-02-20 10:52:03,800 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_harvik_sample_iris.csv
+2025-02-20 10:52:03,807 - INFO - 127.0.0.1 - - [20/Feb/2025 10:52:03] "GET /clean/harvik_sample_iris.csv HTTP/1.1" 200 -
+2025-02-20 11:04:47,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-20 11:04:47,176 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-20 11:04:47,178 - INFO -  * Restarting with stat
+2025-02-20 11:04:47,729 - WARNING -  * Debugger is active!
+2025-02-20 11:04:47,732 - INFO -  * Debugger PIN: 745-636-486
+2025-02-20 11:04:56,011 - INFO - 127.0.0.1 - - [20/Feb/2025 11:04:56] "GET / HTTP/1.1" 200 -
+2025-02-20 11:05:00,401 - INFO - 127.0.0.1 - - [20/Feb/2025 11:05:00] "GET / HTTP/1.1" 200 -
+2025-02-20 11:05:00,449 - INFO - 127.0.0.1 - - [20/Feb/2025 11:05:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-20 11:05:07,057 - INFO - \u2705 File uploaded: harvik_sample_iris.csv
+2025-02-20 11:05:07,058 - INFO - 127.0.0.1 - - [20/Feb/2025 11:05:07] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-02-20 11:05:07,062 - INFO - \U0001f4c2 Checking if file exists: C:\Users\VICTUS\OneDrive\Desktop\digital twin\uploads\harvik_sample_iris.csv
+2025-02-20 11:05:07,087 - INFO - \u2705 Cleaned file saved at: C:\Users\VICTUS\OneDrive\Desktop\digital twin\cleaned_files\cleaned_harvik_sample_iris.csv
+2025-02-20 11:05:07,101 - INFO - 127.0.0.1 - - [20/Feb/2025 11:05:07] "GET /clean/harvik_sample_iris.csv HTTP/1.1" 200 -
+2025-02-20 11:08:15,240 - INFO -  * Detected change in 'C:\\Users\\VICTUS\\OneDrive\\Desktop\\digital twin\\app.py', reloading
+2025-02-20 11:08:15,338 - INFO -  * Restarting with stat
