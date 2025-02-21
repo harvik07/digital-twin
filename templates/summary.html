@@ -18,7 +18,9 @@
             {{ summary|safe }}
         </div>
         <h3>Download Cleaned File</h3>
-        <a href="{{ url_for('static', filename='cleaned_files/' + cleaned_filename) }}" download>Download</a>
+        <a href="{{ url_for('download_cleaned_file', filename=cleaned_filename) }}" download>
+            <button class="button">Download</button>
+        </a>
 
         <h3>Proceed to Visualization</h3>
         <a href="{{ url_for('visualization', filename=cleaned_filename) }}">Go to Visualization</a>
@@ -31,6 +33,11 @@
         <h3>Search & Filter</h3>
         <a href="{{ url_for('search_layout') }}">
             <button class="button">Go to Search & Filter</button>
+        </a>
+
+        <h3>Generate Report</h3>
+        <a href="{{ url_for('generate_report', filename=cleaned_filename) }}">
+            <button class="button">Go to Report</button>
         </a>
     </div>
 </body>

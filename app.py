@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from flask import Flask, request, render_template, redirect, url_for, flash, send_file
 from werkzeug.utils import secure_filename
+import pdfkit
 
 # Use the Agg backend for Matplotlib (prevents GUI errors)
 import matplotlib
@@ -15,14 +16,16 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 CLEANED_FOLDER = "cleaned_files"
 CHARTS_FOLDER = "static/charts"
+PDF_FOLDER = "static/pdf"
 
 # Ensure folders exist
-for folder in [UPLOAD_FOLDER, CLEANED_FOLDER, CHARTS_FOLDER]:
+for folder in [UPLOAD_FOLDER, CLEANED_FOLDER, CHARTS_FOLDER, PDF_FOLDER]:
     os.makedirs(folder, exist_ok=True)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CLEANED_FOLDER'] = CLEANED_FOLDER
 app.config['CHARTS_FOLDER'] = CHARTS_FOLDER
+app.config['PDF_FOLDER'] = PDF_FOLDER
 app.secret_key = 'your_secret_key'  # Flash messages
 
 # 🏠 Home - File Upload & Cleaning
@@ -184,6 +187,94 @@ def search_layout():
 
     except Exception as e:
         flash(f"Error loading 2D warehouse model: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 📝 Generate Report Route
+@app.route('/generate_report/<filename>', methods=['GET', 'POST'])
+def generate_report(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File {filename} not found.")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+
+        # Ensure required columns exist
+        required_columns = [
+            'Purchase_Price', 'Selling_Price', 'Total Sales Volume', 'Total Revenue',
+            'Profit per Unit', 'Profit Margin (%)', 'Stock Turnover Rate', 'Storage Space (cubic ft)', 'Quantity Available'
+        ]
+        if not all(column in df.columns for column in required_columns):
+            flash("Your Excel file must contain these columns: Purchase_Price, Selling_Price, Total Sales Volume, Total Revenue, Profit per Unit, Profit Margin (%), Stock Turnover Rate, Storage Space (cubic ft), Quantity Available.", "danger")
+            return redirect(url_for('summary', filename=filename))
+
+        # Calculate insights
+        most_stocked_product = df.loc[df['Quantity Available'].idxmax()]['Product Name']
+        slow_moving_products = df[df['Stock Turnover Rate'] < 1]['Product Name'].tolist()
+        total_stock = df['Quantity Available'].sum()
+        most_valuable_product = df.loc[df['Total Revenue'].idxmax()]['Product Name']
+        least_valuable_product = df.loc[df['Total Revenue'].idxmin()]['Product Name']
+        most_profitable_products = df[df['Profit Margin (%)'] == df['Profit Margin (%)'].max()]['Product Name'].tolist()
+        least_profitable_products = df[df['Profit Margin (%)'] == df['Profit Margin (%)'].min()]['Product Name'].tolist()
+        best_selling_product = df.loc[df['Total Sales Volume'].idxmax()]['Product Name']
+        worst_selling_product = df.loc[df['Total Sales Volume'].idxmin()]['Product Name']
+
+        # Warehouse density analysis
+        if request.method == 'POST':
+            total_capacity = float(request.form.get('total_capacity'))
+            used_space = df['Storage Space (cubic ft)'].sum()
+            available_space = total_capacity - used_space
+            warehouse_density_message = "Warehouse has sufficient space." if available_space > 0 else "Warning: Warehouse is almost full."
+
+            return render_template("report.html", 
+                                   most_stocked_product=most_stocked_product,
+                                   slow_moving_products=slow_moving_products,
+                                   total_stock=total_stock,
+                                   most_valuable_product=most_valuable_product,
+                                   least_valuable_product=least_valuable_product,
+                                   most_profitable_products=most_profitable_products,
+                                   least_profitable_products=least_profitable_products,
+                                   best_selling_product=best_selling_product,
+                                   worst_selling_product=worst_selling_product,
+                                   warehouse_density_message=warehouse_density_message,
+                                   available_space=available_space)
+
+        return render_template("report.html", 
+                               most_stocked_product=most_stocked_product,
+                               slow_moving_products=slow_moving_products,
+                               total_stock=total_stock,
+                               most_valuable_product=most_valuable_product,
+                               least_valuable_product=least_valuable_product,
+                               most_profitable_products=most_profitable_products,
+                               least_profitable_products=least_profitable_products,
+                               best_selling_product=best_selling_product,
+                               worst_selling_product=worst_selling_product)
+
+    except Exception as e:
+        flash(f"Error generating report: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 📄 Generate PDF Route
+@app.route('/generate_pdf/<filename>')
+def generate_pdf(filename):
+    try:
+        report_html = url_for('generate_report', filename=filename, _external=True)
+        pdf_path = os.path.join(app.config['PDF_FOLDER'], f'report_{filename}.pdf')
+        pdfkit.from_url(report_html, pdf_path)
+        return send_file(pdf_path, as_attachment=True)
+    except Exception as e:
+        flash(f"Error generating PDF: {e}", "danger")
+        return redirect(url_for('generate_report', filename=filename))
+
+@app.route('/download_cleaned_file/<filename>')
+def download_cleaned_file(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+    if os.path.exists(cleaned_file_path):
+        return send_file(cleaned_file_path, as_attachment=True)
+    else:
+        flash(f"File {filename} not found.", "danger")
         return redirect(url_for('home'))
 
 if __name__ == '__main__':
