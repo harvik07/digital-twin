@@ -5,6 +5,11 @@ import seaborn as sns
 from flask import Flask, request, render_template, redirect, url_for, flash, send_file
 from werkzeug.utils import secure_filename
 import pdfkit
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Use the Agg backend for Matplotlib (prevents GUI errors)
 import matplotlib
@@ -28,9 +33,34 @@ app.config['CHARTS_FOLDER'] = CHARTS_FOLDER
 app.config['PDF_FOLDER'] = PDF_FOLDER
 app.secret_key = 'your_secret_key'  # Flash messages
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150), nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False)
+    company_name = db.Column(db.String(150), nullable=False)
+    warehouse_type = db.Column(db.String(150), nullable=False)
+    password = db.Column(db.String(60), nullable=False)
+    workspace_name = db.Column(db.String(150), nullable=False)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 # 🏠 Home - File Upload & Cleaning
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
     if request.method == 'POST':
         file = request.files['file']
         if file.filename == '':
@@ -276,6 +306,52 @@ def download_cleaned_file(filename):
     else:
         flash(f"File {filename} not found.", "danger")
         return redirect(url_for('home'))
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        company_name = request.form.get('company_name')
+        warehouse_type = request.form.get('warehouse_type')
+        password = request.form.get('password')
+        workspace_name = request.form.get('workspace_name')
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        user = User(name=name, email=email, company_name=company_name, warehouse_type=warehouse_type, password=hashed_password, workspace_name=workspace_name)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        return redirect(url_for('login'))
+    return render_template('signup.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        remember = True if request.form.get('remember') else False
+        user = User.query.filter_by(email=email).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            login_user(user, remember=remember)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
