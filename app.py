@@ -45,9 +45,6 @@ def home():
         # Load file
         df = pd.read_csv(file_path) if file_ext == 'csv' else pd.read_excel(file_path)
 
-        # Data Cleaning (Remove duplicates, fill missing values)
-        df = df.drop_duplicates().fillna(0)
-
         # Save cleaned file
         cleaned_filename = f"cleaned_{file.filename}"
         cleaned_path = os.path.join(app.config['CLEANED_FOLDER'], cleaned_filename)
@@ -126,6 +123,35 @@ def visualization(filename):
 
     except Exception as e:
         flash(f"Error loading visualization: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 🏢 2D Warehouse Visualization Route
+@app.route('/warehouse_2d_model/<filename>')
+def warehouse_2d_model(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File {filename} not found.")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+
+        # Ensure only required columns exist
+        required_columns = ['Shelf Number', 'Product Name', 'Quantity Available']
+        if not all(column in df.columns for column in required_columns):
+            flash("To generate the 2D layout, your CSV must have these columns: Shelf Number, Product Name, Quantity Available.", "danger")
+            return redirect(url_for('summary', filename=filename))
+
+        df = df[required_columns]  
+
+        # Convert data to JSON for 2D visualization
+        warehouse_data = df.to_dict(orient='records')
+
+        return render_template("2dwarehouse.html", warehouse_data=warehouse_data)
+
+    except Exception as e:
+        flash(f"Error loading 2D warehouse model: {e}", "danger")
         return redirect(url_for('home'))
 
 if __name__ == '__main__':

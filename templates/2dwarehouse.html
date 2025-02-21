@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Warehouse Layout</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .shelf { stroke: #000; stroke-width: 1px; }
+        .low-stock { fill: red; }
+        .middle-stock { fill: yellow; }
+        .sufficient-stock { fill: green; }
+        .text { font-size: 12px; text-anchor: middle; }
+    </style>
+</head>
+<body>
+    <h1>2D Warehouse Layout</h1>
+    <div id="warehouse2D"></div>
+    <button onclick="downloadPNG()">Download Layout as PNG</button>
+
+    <script>
+        const warehouseData = JSON.parse('{{ warehouse_data | tojson | safe }}');
+
+        const width = 800;
+        const height = 600;
+        const shelfWidth = 100;
+        const shelfHeight = 50;
+
+        const svg = d3.select("#warehouse2D")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("xmlns", "http://www.w3.org/2000/svg");
+
+        // Add a white background to the SVG
+        svg.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill", "white");
+
+        warehouseData.forEach((item, index) => {
+            const x = (index % 8) * shelfWidth;
+            const y = Math.floor(index / 8) * shelfHeight;
+
+            let stockClass;
+            if (item["Quantity Available"] < 10) {
+                stockClass = "low-stock";
+            } else if (item["Quantity Available"] < 20) {
+                stockClass = "middle-stock";
+            } else {
+                stockClass = "sufficient-stock";
+            }
+
+            svg.append("rect")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("width", shelfWidth)
+                .attr("height", shelfHeight)
+                .attr("class", `shelf ${stockClass}`);
+
+            svg.append("text")
+                .attr("x", x + shelfWidth / 2)
+                .attr("y", y + shelfHeight / 2 - 10)
+                .attr("class", "text")
+                .text(`Shelf: ${item["Shelf Number"]}`);
+
+            svg.append("text")
+                .attr("x", x + shelfWidth / 2)
+                .attr("y", y + shelfHeight / 2 + 10)
+                .attr("class", "text")
+                .text(`Qty: ${item["Quantity Available"]}`);
+        });
+
+        function downloadPNG() {
+            const svgElement = document.querySelector("svg");
+            const svgData = new XMLSerializer().serializeToString(svgElement);
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            const img = new Image();
+
+            img.onload = function() {
+                canvas.width = svgElement.clientWidth;
+                canvas.height = svgElement.clientHeight;
+                ctx.drawImage(img, 0, 0);
+                const link = document.createElement("a");
+                link.href = canvas.toDataURL("image/png");
+                link.download = "warehouse_layout.png";
+                link.click();
+            };
+
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+    </script>
+</body>
+</html>

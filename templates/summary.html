@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary Statistics</title>
+    <title>Summary</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .button { margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        .button:hover { background-color: #45a049; }
+    </style>
 </head>
 <body>
-    <h1>Summary Statistics</h1>
+    <div class="container">
+        <h1>Summary Statistics</h1>
+        <div>
+            {{ summary|safe }}
+        </div>
+        <h3>Download Cleaned File</h3>
+        <a href="{{ url_for('static', filename='cleaned_files/' + cleaned_filename) }}" download>Download</a>
 
-    <!-- Display Summary Table -->
-    <h2>Data Overview</h2>
-    {{ summary|safe }}
+        <h3>Proceed to Visualization</h3>
+        <a href="{{ url_for('visualization', filename=cleaned_filename) }}">Go to Visualization</a>
 
-    <!-- Download Cleaned File -->
-    <h3>Download Cleaned File</h3>
-    <a href="{{ url_for('static', filename='cleaned_files/' + cleaned_filename) }}" download>
-        <button>Download</button>
-    </a>
-
-    <!-- Go to Visualization -->
-    <h3>Proceed to Visualization</h3>
-    <a href="{{ url_for('visualization', filename=cleaned_filename) }}">
-        <button>Go to Visualization</button>
-    </a>
+        <h3>Proceed to 2D Warehouse Layout</h3>
+        <a href="{{ url_for('warehouse_2d_model', filename=cleaned_filename) }}">
+            <button class="button">Go to 2D Warehouse Layout</button>
+        </a>
+    </div>
 </body>
 </html>
