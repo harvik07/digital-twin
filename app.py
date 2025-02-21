@@ -45,8 +45,11 @@ def home():
         # Load file
         df = pd.read_csv(file_path) if file_ext == 'csv' else pd.read_excel(file_path)
 
+        # Data Cleaning (Remove duplicates, drop NaN values, fill missing values)
+        df = df.drop_duplicates().dropna().fillna(0)
+
         # Save cleaned file
-        cleaned_filename = f"cleaned_{file.filename}"
+        cleaned_filename = "cleaned_warehouse.csv"
         cleaned_path = os.path.join(app.config['CLEANED_FOLDER'], cleaned_filename)
         df.to_csv(cleaned_path, index=False) if file_ext == 'csv' else df.to_excel(cleaned_path, index=False)
 
@@ -149,6 +152,35 @@ def warehouse_2d_model(filename):
         warehouse_data = df.to_dict(orient='records')
 
         return render_template("2dwarehouse.html", warehouse_data=warehouse_data)
+
+    except Exception as e:
+        flash(f"Error loading 2D warehouse model: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 🏢 Search & Filter Warehouse Visualization Route
+@app.route('/search_layout', methods=['GET', 'POST'])
+def search_layout():
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], 'cleaned_warehouse.csv')
+
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File not found.")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if cleaned_file_path.endswith('.csv') else pd.read_excel(cleaned_file_path)
+
+        # Ensure only required columns exist
+        required_columns = ['Shelf Number', 'Product Name', 'Quantity Available']
+        if not all(column in df.columns for column in required_columns):
+            flash("To generate the 2D layout, your CSV must have these columns: Shelf Number, Product Name, Quantity Available.", "danger")
+            return redirect(url_for('home'))
+
+        df = df[required_columns]
+
+        # Convert data to JSON for 2D visualization
+        warehouse_data = df.to_dict(orient='records')
+
+        return render_template("search_layout.html", warehouse_data=warehouse_data)
 
     except Exception as e:
         flash(f"Error loading 2D warehouse model: {e}", "danger")

@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D Warehouse Layout</title>
+    <title>Search & Filter Warehouse Layout</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; }
-        .shelf { stroke: #000; stroke-width: 1px; }
-        .low-stock { fill: red; }
-        .middle-stock { fill: yellow; }
-        .sufficient-stock { fill: green; }
+        .shelf { stroke: #000; stroke-width: 1px; fill: white; }
+        .highlight { fill: yellow; }
         .text { font-size: 12px; text-anchor: middle; }
+        .button { margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        .button:hover { background-color: #45a049; }
     </style>
 </head>
 <body>
-    <h1>2D Warehouse Layout</h1>
+    <h1>Search & Filter Warehouse Layout</h1>
+    <input type="text" id="searchInput" placeholder="Enter product name">
+    <button onclick="searchProduct()" class="button">Search</button>
     <div id="warehouse2D"></div>
-    <button onclick="downloadPNG()">Download Layout as PNG</button>
+    <div id="message"></div>
 
     <script>
         const warehouseData = JSON.parse('{{ warehouse_data | tojson | safe }}');
@@ -44,21 +45,13 @@
             const x = (index % 8) * shelfWidth;
             const y = Math.floor(index / 8) * shelfHeight;
 
-            let stockClass;
-            if (item["Quantity Available"] < 10) {
-                stockClass = "low-stock";
-            } else if (item["Quantity Available"] < 20) {
-                stockClass = "middle-stock";
-            } else {
-                stockClass = "sufficient-stock";
-            }
-
             svg.append("rect")
                 .attr("x", x)
                 .attr("y", y)
                 .attr("width", shelfWidth)
                 .attr("height", shelfHeight)
-                .attr("class", `shelf ${stockClass}`);
+                .attr("class", "shelf")
+                .attr("id", `shelf-${index}`);
 
             svg.append("text")
                 .attr("x", x + shelfWidth / 2)
@@ -79,24 +72,27 @@
                 .text(`${item["Quantity Available"]}`);
         });
 
-        function downloadPNG() {
-            const svgElement = document.querySelector("svg");
-            const svgData = new XMLSerializer().serializeToString(svgElement);
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-            const img = new Image();
+        function searchProduct() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            let found = false;
 
-            img.onload = function() {
-                canvas.width = svgElement.clientWidth;
-                canvas.height = svgElement.clientHeight;
-                ctx.drawImage(img, 0, 0);
-                const link = document.createElement("a");
-                link.href = canvas.toDataURL("image/png");
-                link.download = "warehouse_layout.png";
-                link.click();
-            };
+            // Reset all highlights
+            d3.selectAll(".shelf").classed("highlight", false);
 
-            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+            warehouseData.forEach((item, index) => {
+                const shelf = d3.select(`#shelf-${index}`);
+                if (item["Product Name"].toLowerCase().includes(searchInput)) {
+                    shelf.classed("highlight", true);
+                    found = true;
+                }
+            });
+
+            const message = document.getElementById("message");
+            if (found) {
+                message.textContent = "";
+            } else {
+                message.textContent = "Product not found in warehouse.";
+            }
         }
     </script>
 </body>
