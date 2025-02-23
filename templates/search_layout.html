@@ -12,14 +12,38 @@
         .text { font-size: 12px; text-anchor: middle; }
         .button { margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
         .button:hover { background-color: #45a049; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
-    <h1>Search & Filter Warehouse Layout</h1>
-    <input type="text" id="searchInput" placeholder="Enter product name">
-    <button onclick="searchProduct()" class="button">Search</button>
-    <div id="warehouse2D"></div>
-    <div id="message"></div>
+    <div class="container">
+        <h1>Search & Filter Warehouse Layout</h1>
+        <input type="text" id="searchInput" placeholder="Enter product name">
+        <button onclick="searchProduct()" class="button">Search</button>
+        <div id="warehouse2D"></div>
+        <div id="message"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Shelf Number</th>
+                    <th>Product Name</th>
+                    <th>Quantity Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in warehouse_data %}
+                <tr>
+                    <td>{{ item['Shelf Number'] }}</td>
+                    <td>{{ item['Product Name'] }}</td>
+                    <td>{{ item['Quantity Available'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <script>
         const warehouseData = JSON.parse('{{ warehouse_data | tojson | safe }}');

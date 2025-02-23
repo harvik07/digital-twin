@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D Warehouse Layout</title>
+    <title>2D Warehouse Model</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <style>
@@ -13,12 +13,36 @@
         .middle-stock { fill: yellow; }
         .sufficient-stock { fill: green; }
         .text { font-size: 12px; text-anchor: middle; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
-    <h1>2D Warehouse Layout</h1>
-    <div id="warehouse2D"></div>
-    <button onclick="downloadPNG()">Download Layout as PNG</button>
+    <div class="container">
+        <h1>2D Warehouse Model</h1>
+        <div id="warehouse2D"></div>
+        <button onclick="downloadPNG()">Download Layout as PNG</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Shelf Number</th>
+                    <th>Product Name</th>
+                    <th>Quantity Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in warehouse_data %}
+                <tr>
+                    <td>{{ item['Shelf Number'] }}</td>
+                    <td>{{ item['Product Name'] }}</td>
+                    <td>{{ item['Quantity Available'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <script>
         const warehouseData = JSON.parse('{{ warehouse_data | tojson | safe }}');

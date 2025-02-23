@@ -14,6 +14,7 @@
 <body>
     <div class="container">
         <h1>Warehouse Report</h1>
+        
         <h3>Most Stocked Product</h3>
         <p>{{ most_stocked_product }}</p>
 
@@ -33,35 +34,33 @@
         <h3>Least Valuable Product</h3>
         <p>{{ least_valuable_product }}</p>
 
-        <h3>Most Profitable Products</h3>
-        <ul>
-            {% for product in most_profitable_products %}
-                <li>{{ product }}</li>
-            {% endfor %}
-        </ul>
+        <h3>Most Profitable Product</h3>
+        <p>{{ most_profitable_product }}</p>
 
-        <h3>Least Profitable Products</h3>
-        <ul>
-            {% for product in least_profitable_products %}
-                <li>{{ product }}</li>
-            {% endfor %}
-        </ul>
+        <h3>Least Profitable Product</h3>
+        <p>{{ least_profitable_product }}</p>
 
-        <h3>Best-Selling Product</h3>
+        <h3>Best Selling Product</h3>
         <p>{{ best_selling_product }}</p>
 
-        <h3>Worst-Selling Product</h3>
+        <h3>Worst Selling Product</h3>
         <p>{{ worst_selling_product }}</p>
 
-        <h3>Warehouse Density Analysis</h3>
-        <form method="post">
+        <form method="POST">
             <label for="total_capacity">Enter Total Warehouse Capacity (cubic ft):</label>
-            <input type="number" id="total_capacity" name="total_capacity" step="0.01" required>
-            <button type="submit" class="button">Calculate</button>
+            <input type="number" id="total_capacity" name="total_capacity" required>
+            <button type="submit" class="button">Calculate Available Space</button>
         </form>
-        {% if warehouse_density_message %}
-            <p>{{ warehouse_density_message }}</p>
-            <p>Available Space: {{ available_space }} cubic ft</p>
+
+        <h3>Warehouse Density Message</h3>
+        <p>{{ warehouse_density_message }}</p>
+
+        <h3>Available Space</h3>
+        <p>{{ available_space }}</p>
+
+        {% if updated_filename %}
+        <h3>Download Updated CSV</h3>
+        <a href="{{ url_for('download_updated_file', filename=updated_filename) }}" class="button">Download Updated CSV</a>
         {% endif %}
     </div>
 </body>

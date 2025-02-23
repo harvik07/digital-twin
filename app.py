@@ -10,6 +10,7 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import chardet
 
 # Use the Agg backend for Matplotlib (prevents GUI errors)
 import matplotlib
@@ -22,16 +23,19 @@ UPLOAD_FOLDER = "uploads"
 CLEANED_FOLDER = "cleaned_files"
 CHARTS_FOLDER = "static/charts"
 PDF_FOLDER = "static/pdf"
+UPDATED_FILES = "updated_files"
 
 # Ensure folders exist
-for folder in [UPLOAD_FOLDER, CLEANED_FOLDER, CHARTS_FOLDER, PDF_FOLDER]:
+for folder in [UPLOAD_FOLDER, CLEANED_FOLDER, CHARTS_FOLDER, PDF_FOLDER, UPDATED_FILES]:
     os.makedirs(folder, exist_ok=True)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CLEANED_FOLDER'] = CLEANED_FOLDER
 app.config['CHARTS_FOLDER'] = CHARTS_FOLDER
 app.config['PDF_FOLDER'] = PDF_FOLDER
+app.config['UPDATED_FILES'] = UPDATED_FILES
 app.secret_key = 'your_secret_key'  # Flash messages
+app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -75,8 +79,17 @@ def home():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(file_path)
 
-        # Load file
-        df = pd.read_csv(file_path) if file_ext == 'csv' else pd.read_excel(file_path)
+        # Detect file encoding
+        with open(file_path, 'rb') as f:
+            result = chardet.detect(f.read())
+            encoding = result['encoding']
+
+        # Load file with detected encoding
+        if file_ext == 'csv':
+            chunks = pd.read_csv(file_path, encoding=encoding, chunksize=10000)
+            df = pd.concat(chunks)
+        else:
+            df = pd.read_excel(file_path)
 
         # Data Cleaning (Remove duplicates, drop NaN values, fill missing values)
         df = df.drop_duplicates().dropna().fillna(0)
@@ -99,7 +112,13 @@ def home():
 def summary(filename):
     cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
     try:
-        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        # Detect file encoding
+        with open(cleaned_file_path, 'rb') as f:
+            result = chardet.detect(f.read())
+            encoding = result['encoding']
+
+        # Load file with detected encoding
+        df = pd.read_csv(cleaned_file_path, encoding=encoding) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
         summary = df.describe().to_html()
         return render_template("summary.html", summary=summary, cleaned_filename=filename)
     except Exception as e:
@@ -116,7 +135,17 @@ def visualization(filename):
         return redirect(url_for('home'))
 
     try:
-        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        # Detect file encoding
+        with open(cleaned_file_path, 'rb') as f:
+            result = chardet.detect(f.read())
+            encoding = result['encoding']
+
+        # Load file with detected encoding
+        if filename.endswith('.csv'):
+            chunks = pd.read_csv(cleaned_file_path, encoding=encoding, chunksize=10000)
+            df = pd.concat(chunks)
+        else:
+            df = pd.read_excel(cleaned_file_path)
         columns = df.columns.tolist()
 
         if request.method == 'POST':
@@ -229,15 +258,33 @@ def generate_report(filename):
         return redirect(url_for('home'))
 
     try:
-        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        # Detect file encoding
+        with open(cleaned_file_path, 'rb') as f:
+            result = chardet.detect(f.read())
+            encoding = result['encoding']
+
+        # Load file with detected encoding
+        if filename.endswith('.csv'):
+            chunks = pd.read_csv(cleaned_file_path, encoding=encoding, chunksize=10000)
+            df = pd.concat(chunks)
+        else:
+            df = pd.read_excel(cleaned_file_path)
+
+        # Ensure required columns exist or calculate them
+        if 'Profit per Unit' not in df.columns:
+            df['Profit per Unit'] = df['Selling_Price'] - df['Purchase_Price']
+        if 'Profit Margin (%)' not in df.columns:
+            df['Profit Margin (%)'] = ((df['Selling_Price'] - df['Purchase_Price']) / df['Selling_Price']) * 100
+        if 'Stock Turnover Rate' not in df.columns:
+            df['Stock Turnover Rate'] = df['Total Sales Volume'] / df['Quantity Available']
 
         # Ensure required columns exist
         required_columns = [
-            'Purchase_Price', 'Selling_Price', 'Total Sales Volume', 'Total Revenue',
-            'Profit per Unit', 'Profit Margin (%)', 'Stock Turnover Rate', 'Storage Space (cubic ft)', 'Quantity Available'
+            'Product Name', 'Purchase_Price', 'Selling_Price', 'Total Sales Volume', 'Total Revenue',
+            'Profit per Unit', 'Profit Margin (%)', 'Stock Turnover Rate', 'Quantity Available'
         ]
         if not all(column in df.columns for column in required_columns):
-            flash("Your Excel file must contain these columns: Purchase_Price, Selling_Price, Total Sales Volume, Total Revenue, Profit per Unit, Profit Margin (%), Stock Turnover Rate, Storage Space (cubic ft), Quantity Available.", "danger")
+            flash("Your Excel file must contain these columns: Product Name, Purchase_Price, Selling_Price, Total Sales Volume, Total Revenue, Profit per Unit, Profit Margin (%), Stock Turnover Rate, Quantity Available.", "danger")
             return redirect(url_for('summary', filename=filename))
 
         # Calculate insights
@@ -246,17 +293,24 @@ def generate_report(filename):
         total_stock = df['Quantity Available'].sum()
         most_valuable_product = df.loc[df['Total Revenue'].idxmax()]['Product Name']
         least_valuable_product = df.loc[df['Total Revenue'].idxmin()]['Product Name']
-        most_profitable_products = df[df['Profit Margin (%)'] == df['Profit Margin (%)'].max()]['Product Name'].tolist()
-        least_profitable_products = df[df['Profit Margin (%)'] == df['Profit Margin (%)'].min()]['Product Name'].tolist()
+        most_profitable_product = df.loc[df['Profit Margin (%)'].idxmax()]['Product Name']
+        least_profitable_product = df.loc[df['Profit Margin (%)'].idxmin()]['Product Name']
         best_selling_product = df.loc[df['Total Sales Volume'].idxmax()]['Product Name']
         worst_selling_product = df.loc[df['Total Sales Volume'].idxmin()]['Product Name']
 
         # Warehouse density analysis
+        warehouse_density_message = ""
+        available_space = None
         if request.method == 'POST':
             total_capacity = float(request.form.get('total_capacity'))
-            used_space = df['Storage Space (cubic ft)'].sum()
+            used_space = df['Storage Space (cubic ft)'].sum() if 'Storage Space (cubic ft)' in df.columns else 0
             available_space = total_capacity - used_space
             warehouse_density_message = "Warehouse has sufficient space." if available_space > 0 else "Warning: Warehouse is almost full."
+
+            # Save updated CSV file
+            updated_filename = f"updated_{filename}"
+            updated_path = os.path.join(app.config['UPDATED_FILES'], updated_filename)
+            df.to_csv(updated_path, index=False) if filename.endswith('.csv') else df.to_excel(updated_path, index=False)
 
             return render_template("report.html", 
                                    most_stocked_product=most_stocked_product,
@@ -264,12 +318,13 @@ def generate_report(filename):
                                    total_stock=total_stock,
                                    most_valuable_product=most_valuable_product,
                                    least_valuable_product=least_valuable_product,
-                                   most_profitable_products=most_profitable_products,
-                                   least_profitable_products=least_profitable_products,
+                                   most_profitable_product=most_profitable_product,
+                                   least_profitable_product=least_profitable_product,
                                    best_selling_product=best_selling_product,
                                    worst_selling_product=worst_selling_product,
                                    warehouse_density_message=warehouse_density_message,
-                                   available_space=available_space)
+                                   available_space=available_space,
+                                   updated_filename=updated_filename)
 
         return render_template("report.html", 
                                most_stocked_product=most_stocked_product,
@@ -277,13 +332,25 @@ def generate_report(filename):
                                total_stock=total_stock,
                                most_valuable_product=most_valuable_product,
                                least_valuable_product=least_valuable_product,
-                               most_profitable_products=most_profitable_products,
-                               least_profitable_products=least_profitable_products,
+                               most_profitable_product=most_profitable_product,
+                               least_profitable_product=least_profitable_product,
                                best_selling_product=best_selling_product,
-                               worst_selling_product=worst_selling_product)
+                               worst_selling_product=worst_selling_product,
+                               warehouse_density_message=warehouse_density_message,
+                               available_space=available_space)
 
     except Exception as e:
         flash(f"Error generating report: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 📄 Download Updated CSV Route
+@app.route('/download_updated_file/<filename>')
+def download_updated_file(filename):
+    updated_file_path = os.path.join(app.config['UPDATED_FILES'], filename)
+    if os.path.exists(updated_file_path):
+        return send_file(updated_file_path, as_attachment=True)
+    else:
+        flash(f"File {filename} not found.", "danger")
         return redirect(url_for('home'))
 
 # 📄 Generate PDF Route

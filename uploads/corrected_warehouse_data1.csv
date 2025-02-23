@@ -3,7 +3,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1002,Hand Mixer,Appliances,T9,31,9,Storage Solutions,31.91,58.56,1/2/2025,Reorder Needed,488,28577.28,26.65,40,15.74193548,33,C,45.51
 1003,Study Desk,Furniture,Y0,67,11,Home Essentials,115.07,139.67,1/3/2025,Available,306,42739.02,24.6,40,4.567164179,14,A,17.61
 1004,Measuring Cups,Lighting,Q4,21,6,Home Essentials,416.67,463.16,1/4/2025,Low Stock,472,218611.52,46.49,40,22.47619048,31,C,10.04
-1005,Dining Table,Furniture,U8,77,8,IKEA Supplies,687.0,935.2,1/5/2025,Out of Stock,205,191716.0,248.2,40,2.662337662,43,B,26.54
+1005,Dining Table,Furniture,U8,77,8,IKEA Supplies,687,935.2,1/5/2025,Out of Stock,205,191716,248.2,40,2.662337662,43,B,26.54
 1006,Hand Mixer,Appliances,F7,37,11,Light Co.,202.64,329.83,1/6/2025,Low Stock,246,81138.18,127.19,40,6.648648649,10,A,38.56
 1007,Folding Table,Furniture,L5,88,13,TechCorp,353.52,517.09,1/7/2025,Available,345,178396.05,163.57,40,3.920454545,48,A,31.63
 1008,Fitness Tracker,Electronics,I0,81,3,Home Essentials,38.48,60.74,1/8/2025,Low Stock,117,7106.58,22.26,40,1.444444444,28,C,36.65
@@ -13,10 +13,10 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1012,Fitness Tracker,Electronics,X7,50,5,Storage Solutions,18.56,24.84,1/12/2025,Available,223,5539.32,6.28,40,4.46,49,C,25.28
 1013,Curtains,Lighting,R7,39,2,Storage Solutions,646.37,952.78,1/13/2025,Available,149,141964.22,306.41,40,3.820512821,20,C,32.16
 1014,Patio Set,Furniture,U0,10,6,TechCorp,579.1,646.34,1/14/2025,Out of Stock,359,232036.06,67.24,40,35.9,32,A,10.4
-1015,Clothes Dryer,Appliances,O2,86,10,TechCorp,721.39,870.56,1/15/2025,Reorder Needed,425,369988.0,149.17,40,4.941860465,38,B,17.13
+1015,Clothes Dryer,Appliances,O2,86,10,TechCorp,721.39,870.56,1/15/2025,Reorder Needed,425,369988,149.17,40,4.941860465,38,B,17.13
 1016,Gaming Console,Electronics,B3,73,2,IKEA Supplies,343.53,465.65,1/16/2025,Reorder Needed,168,78229.2,122.12,40,2.301369863,12,B,26.23
 1017,Cushion Set,Lighting,F7,51,10,Storage Solutions,358.13,525.28,1/17/2025,Low Stock,261,137098.08,167.15,40,5.117647059,24,A,31.82
-1018,Ironing Board,Appliances,R3,29,12,Home Essentials,381.07,499.07,1/18/2025,Low Stock,184,91828.88,118.0,40,6.344827586,19,D,23.64
+1018,Ironing Board,Appliances,R3,29,12,Home Essentials,381.07,499.07,1/18/2025,Low Stock,184,91828.88,118,40,6.344827586,19,D,23.64
 1019,Standing Fan,Lighting,T9,70,9,Storage Solutions,485.39,673.53,1/19/2025,Out of Stock,84,56576.52,188.14,40,1.2,22,C,27.93
 1020,Desk Organizer,Storage,J3,14,7,Home Essentials,118.12,156.86,1/20/2025,Out of Stock,330,51763.8,38.74,40,23.57142857,23,D,24.7
 1021,Cookware Set,Lighting,B7,60,8,Light Co.,33.06,49.37,1/21/2025,Out of Stock,452,22315.24,16.31,40,7.533333333,39,B,33.04
@@ -33,7 +33,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1032,Wardrobe,Furniture,M6,93,3,Home Essentials,419.55,698.77,2/1/2025,Available,273,190764.21,279.22,40,2.935483871,24,A,39.96
 1033,Smartphone Charger,Electronics,Z5,90,13,Light Co.,732.45,841.35,2/2/2025,Out of Stock,56,47115.6,108.9,40,0.622222222,39,A,12.94
 1034,Office Chair,Furniture,M2,63,4,Light Co.,653.35,945.72,2/3/2025,Out of Stock,110,104029.2,292.37,40,1.746031746,18,C,30.92
-1035,Bookshelf,Furniture,J5,31,4,Storage Solutions,574.35,689.58,2/4/2025,Out of Stock,155,106884.9,115.23,40,5.0,25,A,16.71
+1035,Bookshelf,Furniture,J5,31,4,Storage Solutions,574.35,689.58,2/4/2025,Out of Stock,155,106884.9,115.23,40,5,25,A,16.71
 1036,LED Lamp,Lighting,Q2,53,2,Storage Solutions,333.83,507.23,2/5/2025,Reorder Needed,350,177530.5,173.4,40,6.603773585,6,D,34.19
 1037,Extension Cord,Storage,T9,81,9,IKEA Supplies,343.15,625.49,2/6/2025,Low Stock,325,203284.25,282.34,40,4.012345679,14,D,45.14
 1038,Leather Sofa,Furniture,D3,37,7,TechCorp,585.93,871.53,2/7/2025,Reorder Needed,114,99354.42,285.6,40,3.081081081,12,A,32.77
@@ -62,11 +62,11 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1061,USB Hub,Electronics,E4,55,8,Storage Solutions,531.32,674.24,3/2/2025,Low Stock,343,231264.32,142.92,40,6.236363636,5,A,21.2
 1062,Cookware Set,Lighting,Y2,49,9,Storage Solutions,560.92,811.69,3/3/2025,Available,239,193993.91,250.77,40,4.87755102,31,A,30.89
 1063,Wall Hooks,Lighting,N5,81,4,TechCorp,523.02,767.04,3/4/2025,Reorder Needed,454,348236.16,244.02,40,5.604938272,13,D,31.81
-1064,Duvet Cover,Other,B1,8,14,Storage Solutions,423.44,801.86,3/5/2025,Reorder Needed,264,211691.04,378.42,40,33.0,49,B,47.19
+1064,Duvet Cover,Other,B1,8,14,Storage Solutions,423.44,801.86,3/5/2025,Reorder Needed,264,211691.04,378.42,40,33,49,B,47.19
 1065,Leather Sofa,Furniture,U6,66,7,Home Essentials,400.61,446.87,3/6/2025,Low Stock,466,208241.42,46.26,40,7.060606061,26,C,10.35
 1066,Leather Sofa,Furniture,N3,69,2,TechCorp,501.73,821.48,3/7/2025,Available,192,157724.16,319.75,40,2.782608696,35,D,38.92
 1067,Rice Cooker,Appliances,I8,36,8,Storage Solutions,99.06,137.8,3/8/2025,Reorder Needed,327,45060.6,38.74,40,9.083333333,6,B,28.11
-1068,Wall Clock,Lighting,T3,38,2,TechCorp,337.42,553.6,3/9/2025,Low Stock,115,63664.0,216.18,40,3.026315789,46,B,39.05
+1068,Wall Clock,Lighting,T3,38,2,TechCorp,337.42,553.6,3/9/2025,Low Stock,115,63664,216.18,40,3.026315789,46,B,39.05
 1069,Shoe Rack,Storage,B5,96,10,Light Co.,22.19,25.64,3/10/2025,Reorder Needed,432,11076.48,3.45,40,4.5,42,C,13.46
 1070,Dish Rack,Other,B7,99,2,IKEA Supplies,303.47,338.09,3/11/2025,Out of Stock,301,101765.09,34.62,40,3.04040404,31,D,10.24
 1071,Standing Fan,Lighting,Q6,76,2,TechCorp,264.54,379.13,3/12/2025,Low Stock,129,48907.77,114.59,40,1.697368421,6,A,30.22
@@ -89,7 +89,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1088,Patio Set,Furniture,V5,83,14,TechCorp,34.12,45.13,3/29/2025,Available,251,11327.63,11.01,40,3.024096386,21,C,24.4
 1089,Handheld Vacuum,Appliances,N7,89,2,Storage Solutions,211.14,354.42,3/30/2025,Out of Stock,180,63795.6,143.28,40,2.02247191,8,A,40.43
 1090,Duvet Cover,Other,V7,18,5,IKEA Supplies,304.09,392.59,3/31/2025,Low Stock,173,67918.07,88.5,40,9.611111111,39,A,22.54
-1091,Glassware Set,Lighting,K8,70,8,TechCorp,327.19,410.85,4/1/2025,Low Stock,210,86278.5,83.66,40,3.0,34,D,20.36
+1091,Glassware Set,Lighting,K8,70,8,TechCorp,327.19,410.85,4/1/2025,Low Stock,210,86278.5,83.66,40,3,34,D,20.36
 1092,Leather Sofa,Furniture,C6,79,12,Storage Solutions,348.3,588.57,4/2/2025,Available,155,91228.35,240.27,40,1.962025316,10,B,40.82
 1093,Shoe Rack,Storage,L1,55,5,Light Co.,371.08,542.93,4/3/2025,Out of Stock,178,96641.54,171.85,40,3.236363636,31,A,31.65
 1094,Table Lamp,Lighting,G8,42,14,TechCorp,423.38,615.75,4/4/2025,Out of Stock,406,249994.5,192.37,40,9.666666667,41,A,31.24
@@ -111,7 +111,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1110,Side Table,Furniture,V3,85,2,Home Essentials,396.03,496.15,4/20/2025,Available,448,222275.2,100.12,40,5.270588235,46,D,20.18
 1111,Monitor Stand,Electronics,J7,9,7,Home Essentials,209.06,271.64,4/21/2025,Reorder Needed,272,73886.08,62.58,40,30.22222222,28,C,23.04
 1112,Blender,Appliances,M8,33,7,TechCorp,224.6,299.18,4/22/2025,Reorder Needed,338,101122.84,74.58,40,10.24242424,45,D,24.93
-1113,Footstool,Furniture,V9,8,14,Storage Solutions,184.0,321.14,4/23/2025,Available,370,118821.8,137.14,40,46.25,27,B,42.7
+1113,Footstool,Furniture,V9,8,14,Storage Solutions,184,321.14,4/23/2025,Available,370,118821.8,137.14,40,46.25,27,B,42.7
 1114,Water Purifier,Appliances,C8,14,5,IKEA Supplies,546.87,806.97,4/24/2025,Reorder Needed,237,191251.89,260.1,40,16.92857143,10,B,32.23
 1115,Glassware Set,Lighting,T3,60,14,TechCorp,448.04,548.38,4/25/2025,Available,481,263770.78,100.34,40,8.016666667,5,D,18.3
 1116,Glassware Set,Lighting,N1,21,9,Light Co.,177.52,325.08,4/26/2025,Available,278,90372.24,147.56,40,13.23809524,26,D,45.39
@@ -121,7 +121,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1120,Bluetooth Earbuds,Electronics,L5,92,9,Light Co.,234.69,425.28,4/30/2025,Out of Stock,109,46355.52,190.59,40,1.184782609,14,B,44.82
 1121,Storage Cabinet,Storage,V9,73,6,Home Essentials,71.92,139.45,5/1/2025,Available,307,42811.15,67.53,40,4.205479452,11,D,48.43
 1122,Water Purifier,Appliances,D9,38,14,IKEA Supplies,168.26,197.53,5/2/2025,Available,279,55110.87,29.27,40,7.342105263,32,A,14.82
-1123,Wall Shelf,Furniture,X9,10,5,Home Essentials,454.98,687.5,5/3/2025,Available,280,192500.0,232.52,40,28.0,15,D,33.82
+1123,Wall Shelf,Furniture,X9,10,5,Home Essentials,454.98,687.5,5/3/2025,Available,280,192500,232.52,40,28,15,D,33.82
 1124,Smart TV,Electronics,O2,57,13,Storage Solutions,148.85,197.81,5/4/2025,Reorder Needed,474,93761.94,48.96,40,8.315789474,27,C,24.75
 1125,USB Hub,Electronics,P9,70,14,Home Essentials,408.58,534.66,5/5/2025,Out of Stock,422,225626.52,126.08,40,6.028571429,8,D,23.58
 1126,Leather Sofa,Furniture,Q6,81,3,TechCorp,523.97,714.87,5/6/2025,Out of Stock,54,38602.98,190.9,40,0.666666667,47,A,26.7
@@ -131,11 +131,11 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1130,USB Hub,Electronics,P5,59,5,Storage Solutions,762.53,963.67,5/10/2025,Reorder Needed,113,108894.71,201.14,40,1.915254237,14,B,20.87
 1131,Sofa Bed,Furniture,T9,84,5,IKEA Supplies,283.58,493.87,5/11/2025,Reorder Needed,327,161495.49,210.29,40,3.892857143,46,B,42.58
 1132,Smartwatch,Electronics,M6,99,11,IKEA Supplies,486.42,809.87,5/12/2025,Out of Stock,299,242151.13,323.45,40,3.02020202,6,B,39.94
-1133,Bluetooth Earbuds,Electronics,X7,79,12,IKEA Supplies,304.95,559.22,5/13/2025,Out of Stock,237,132535.14,254.27,40,3.0,31,B,45.47
+1133,Bluetooth Earbuds,Electronics,X7,79,12,IKEA Supplies,304.95,559.22,5/13/2025,Out of Stock,237,132535.14,254.27,40,3,31,B,45.47
 1134,Floor Mat,Lighting,D9,20,12,IKEA Supplies,40.3,62.54,5/14/2025,Out of Stock,470,29393.8,22.24,40,23.5,23,C,35.56
 1135,Wardrobe,Furniture,V1,12,6,IKEA Supplies,369.98,640.49,5/15/2025,Available,138,88387.62,270.51,40,11.5,11,D,42.23
-1136,Laptop Stand,Electronics,V7,8,5,Storage Solutions,692.82,952.38,5/16/2025,Out of Stock,376,358094.88,259.56,40,47.0,15,D,27.25
-1137,Desk Organizer,Storage,G2,8,12,Home Essentials,501.28,609.58,5/17/2025,Low Stock,350,213353.0,108.3,40,43.75,30,B,17.77
+1136,Laptop Stand,Electronics,V7,8,5,Storage Solutions,692.82,952.38,5/16/2025,Out of Stock,376,358094.88,259.56,40,47,15,D,27.25
+1137,Desk Organizer,Storage,G2,8,12,Home Essentials,501.28,609.58,5/17/2025,Low Stock,350,213353,108.3,40,43.75,30,B,17.77
 1138,Wall Clock,Lighting,G2,60,11,TechCorp,476.51,822.81,5/18/2025,Low Stock,198,162916.38,346.3,40,3.3,37,B,42.09
 1139,Rocking Chair,Furniture,W8,29,9,IKEA Supplies,453.49,886.52,5/19/2025,Reorder Needed,361,320033.72,433.03,40,12.44827586,31,D,48.85
 1140,LED Lamp,Lighting,W0,71,7,Home Essentials,183.59,243.52,5/20/2025,Out of Stock,210,51139.2,59.93,40,2.957746479,11,C,24.61
@@ -168,7 +168,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1167,Projector,Electronics,S6,49,11,IKEA Supplies,238.85,403.09,6/16/2025,Out of Stock,293,118105.37,164.24,40,5.979591837,29,B,40.75
 1168,Cutlery Set,Lighting,U6,31,10,Light Co.,398.1,602.59,6/17/2025,Low Stock,443,266947.37,204.49,40,14.29032258,39,D,33.94
 1169,Mattress,Other,U8,77,7,Home Essentials,305.41,506.83,6/18/2025,Out of Stock,258,130762.14,201.42,40,3.350649351,16,B,39.74
-1170,Wall Mirror,Lighting,J5,30,4,TechCorp,685.03,988.03,6/19/2025,Available,289,285540.67,303.0,40,9.633333333,26,A,30.67
+1170,Wall Mirror,Lighting,J5,30,4,TechCorp,685.03,988.03,6/19/2025,Available,289,285540.67,303,40,9.633333333,26,A,30.67
 1171,Wall Mirror,Lighting,R5,51,14,IKEA Supplies,135.98,153.71,6/20/2025,Available,57,8761.47,17.73,40,1.117647059,42,D,11.53
 1172,Storage Cabinet,Storage,V1,90,9,Storage Solutions,386.88,701.24,6/21/2025,Out of Stock,416,291715.84,314.36,40,4.622222222,26,D,44.83
 1173,Side Table,Furniture,U0,60,10,TechCorp,260.79,416.23,6/22/2025,Available,51,21227.73,155.44,40,0.85,14,D,37.34
@@ -200,7 +200,7 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1199,Electric Kettle,Appliances,Q8,11,10,Home Essentials,214.72,337.85,7/18/2025,Out of Stock,278,93922.3,123.13,40,25.27272727,20,C,36.45
 1200,Desktop Computer,Electronics,U8,7,4,TechCorp,299.84,346.34,7/19/2025,Out of Stock,366,126760.44,46.5,40,52.28571429,49,A,13.43
 1201,Rocking Chair,Furniture,Y4,27,5,Light Co.,341.25,676.1,7/20/2025,Out of Stock,467,315738.7,334.85,40,17.2962963,21,A,49.53
-1202,Wall Shelf,Furniture,A2,22,10,IKEA Supplies,760.51,994.26,7/21/2025,Available,220,218737.2,233.75,40,10.0,26,D,23.51
+1202,Wall Shelf,Furniture,A2,22,10,IKEA Supplies,760.51,994.26,7/21/2025,Available,220,218737.2,233.75,40,10,26,D,23.51
 1203,Microwave,Appliances,U0,42,11,Light Co.,370.37,668.6,7/22/2025,Low Stock,164,109650.4,298.23,40,3.904761905,36,B,44.61
 1204,USB Hub,Electronics,N3,19,12,Storage Solutions,335.5,566.63,7/23/2025,Out of Stock,72,40797.36,231.13,40,3.789473684,38,B,40.79
 1205,Bed Frame,Furniture,E6,68,7,IKEA Supplies,410.67,736.04,7/24/2025,Out of Stock,334,245837.36,325.37,40,4.911764706,40,A,44.21
@@ -246,13 +246,13 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1245,Duvet Cover,Other,K6,8,14,Storage Solutions,375.61,458.26,9/2/2025,Low Stock,449,205758.74,82.65,40,56.125,18,A,18.04
 1246,Ironing Board,Appliances,M0,98,9,IKEA Supplies,305.96,608.58,9/3/2025,Available,293,178313.94,302.62,40,2.989795918,37,B,49.73
 1247,Projector,Electronics,T1,79,2,IKEA Supplies,316.32,525.37,9/4/2025,Out of Stock,339,178100.43,209.05,40,4.291139241,24,D,39.79
-1248,Dishwasher,Appliances,S8,66,8,IKEA Supplies,811.71,921.0,9/5/2025,Reorder Needed,451,415371.0,109.29,40,6.833333333,43,D,11.87
+1248,Dishwasher,Appliances,S8,66,8,IKEA Supplies,811.71,921,9/5/2025,Reorder Needed,451,415371,109.29,40,6.833333333,43,D,11.87
 1249,Swivel Chair,Furniture,M8,66,2,Light Co.,307.42,507.02,9/6/2025,Low Stock,486,246411.72,199.6,40,7.363636364,28,C,39.37
 1250,Bar Stool,Furniture,V5,98,14,Light Co.,609.5,992.31,9/7/2025,Available,331,328454.61,382.81,40,3.37755102,17,D,38.58
 1251,Smart TV,Electronics,Q2,99,8,Home Essentials,677.24,854.4,9/8/2025,Available,253,216163.2,177.16,40,2.555555556,35,D,20.74
 1252,USB Hub,Electronics,K0,28,4,TechCorp,150.63,224.34,9/9/2025,Out of Stock,138,30958.92,73.71,40,4.928571429,7,C,32.86
 1253,USB Hub,Electronics,H1,59,12,Storage Solutions,637.01,931.98,9/10/2025,Low Stock,284,264682.32,294.97,40,4.813559322,10,C,31.65
-1254,Extension Cord,Storage,L9,13,9,Storage Solutions,100.99,134.04,9/11/2025,Reorder Needed,400,53616.0,33.05,40,30.76923077,17,A,24.66
+1254,Extension Cord,Storage,L9,13,9,Storage Solutions,100.99,134.04,9/11/2025,Reorder Needed,400,53616,33.05,40,30.76923077,17,A,24.66
 1255,Headphones,Electronics,V5,7,4,Storage Solutions,587.84,821.1,9/12/2025,Out of Stock,475,390022.5,233.26,40,67.85714286,17,D,28.41
 1256,Folding Table,Furniture,F7,35,14,Home Essentials,231.97,393.01,9/13/2025,Reorder Needed,134,52663.34,161.04,40,3.828571429,15,A,40.98
 1257,Bookshelf,Furniture,R7,44,2,Light Co.,738.05,880.41,9/14/2025,Available,193,169919.13,142.36,40,4.386363636,36,B,16.17
@@ -293,9 +293,9 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1292,Duvet Cover,Other,H3,18,9,TechCorp,401.67,648.01,10/19/2025,Low Stock,131,84889.31,246.34,40,7.277777778,30,C,38.01
 1293,Induction Stove,Appliances,L9,68,2,IKEA Supplies,201.09,231.72,10/20/2025,Out of Stock,355,82260.6,30.63,40,5.220588235,30,B,13.22
 1294,Dish Rack,Other,F5,42,10,Home Essentials,403.5,627.2,10/21/2025,Out of Stock,357,223910.4,223.7,40,8.5,8,C,35.67
-1295,Ergonomic Keyboard,Electronics,D5,41,8,Home Essentials,368.56,657.2,10/22/2025,Low Stock,160,105152.0,288.64,40,3.902439024,10,C,43.92
+1295,Ergonomic Keyboard,Electronics,D5,41,8,Home Essentials,368.56,657.2,10/22/2025,Low Stock,160,105152,288.64,40,3.902439024,10,C,43.92
 1296,Cable Management Box,Storage,V7,15,4,Storage Solutions,135.69,168.98,10/23/2025,Out of Stock,239,40386.22,33.29,40,15.93333333,15,B,19.7
 1297,Storage Box,Storage,B7,81,9,Storage Solutions,60.28,80.12,10/24/2025,Reorder Needed,367,29404.04,19.84,40,4.530864198,7,A,24.76
 1298,LED Lamp,Lighting,L9,7,8,IKEA Supplies,417.91,785.15,10/25/2025,Reorder Needed,348,273232.2,367.24,40,49.71428571,7,B,46.77
 1299,Smartphone Charger,Electronics,O0,37,12,IKEA Supplies,282.49,470.6,10/26/2025,Low Stock,353,166121.8,188.11,40,9.540540541,22,B,39.97
-1300,Clothes Dryer,Appliances,T7,10,14,Light Co.,57.05,77.0,10/27/2025,Available,449,34573.0,19.95,40,44.9,49,D,25.91
+1300,Clothes Dryer,Appliances,T7,10,14,Light Co.,57.05,77,10/27/2025,Available,449,34573,19.95,40,44.9,49,D,25.91
