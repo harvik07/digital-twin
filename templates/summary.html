@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Summary Statistics</h1>
+        <h1>Summary</h1>
         <div>
             {{ summary|safe }}
         </div>
@@ -39,6 +39,25 @@
         <a href="{{ url_for('generate_report', filename=cleaned_filename) }}">
             <button class="button">Go to Report</button>
         </a>
+
+        <h3>Stock Demand Prediction</h3>
+        <a href="{{ url_for('predict_stock_demand', filename=cleaned_filename) }}">
+            <button class="button">Go to Prediction</button>
+        </a>
+
+        <h3>Stock Recommendations</h3>
+        <a href="{{ url_for('recommend_stock', filename=cleaned_filename) }}">
+            <button class="button">Go to Stock Recommendations</button>
+        </a>
+
+       
+
+        <h3>Sales Trend Visualization</h3>
+        <a href="{{ url_for('visualize_trends', filename=cleaned_filename) }}">
+            <button class="button">Go to Sales Trend Visualization</button>
+        </a>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
     </div>
 </body>
 </html>

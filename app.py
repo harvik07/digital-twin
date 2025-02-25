@@ -11,6 +11,9 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import chardet
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import IsolationForest
 
 # Use the Agg backend for Matplotlib (prevents GUI errors)
 import matplotlib
@@ -419,6 +422,101 @@ def logout():
 @login_required
 def dashboard():
     return render_template('dashboard.html')
+
+# 📈 Predict Stock Demand Route
+@app.route('/predict_stock_demand/<filename>')
+def predict_stock_demand(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File {filename} not found.", "danger")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        if 'Total Sales Volume' not in df.columns:
+            flash("The file must contain 'Total Sales Volume' column.", "danger")
+            return redirect(url_for('summary', filename=filename))
+
+        # Prepare data for Linear Regression
+        X = np.arange(len(df)).reshape(-1, 1)
+        y = df['Total Sales Volume'].values
+        model = LinearRegression()
+        model.fit(X, y)
+        future_demand = model.predict(np.array([[len(df) + 1]]))[0]
+
+        return render_template('predict_stock_demand.html', future_demand=future_demand)
+
+    except Exception as e:
+        flash(f"Error predicting stock demand: {e}", "danger")
+        return redirect(url_for('home'))
+
+# 📦 Recommend Stock Level Route
+@app.route('/recommend_stock/<filename>')
+def recommend_stock(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File {filename} not found.", "danger")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        if 'Product Name' not in df.columns or 'Quantity Available' not in df.columns or 'Reorder_Level' not in df.columns or 'Total Sales Volume' not in df.columns:
+            flash("The file must contain 'Product Name', 'Quantity Available', 'Reorder_Level', and 'Total Sales Volume' columns.", "danger")
+            return redirect(url_for('summary', filename=filename))
+
+        # Prepare data for Linear Regression for each product
+        future_demand = {}
+        for product in df['Product Name'].unique():
+            product_df = df[df['Product Name'] == product]
+            if len(product_df) < 2:  # Ensure there is enough data to train the model
+                future_demand[product] = "Insufficient data"
+                continue
+            X = np.arange(len(product_df)).reshape(-1, 1)
+            y = product_df['Total Sales Volume'].values
+            model = LinearRegression()
+            model.fit(X, y)
+            prediction = model.predict(np.array([[len(product_df) + 1]]))[0]
+            future_demand[product] = max(0, prediction)  # Ensure the prediction is not negative
+
+        # Generate stock recommendations
+        df['Future Demand'] = df['Product Name'].map(future_demand)
+        recommendations = df[df['Quantity Available'] < df['Reorder_Level']]
+
+        return render_template('recommend_stock.html', recommendations=recommendations.to_html(index=False), future_demand=future_demand)
+
+    except Exception as e:
+        flash(f"Error recommending stock levels: {e}", "danger")
+        return redirect(url_for('home'))
+
+
+# 📊 Visualize Trends Route
+@app.route('/visualize_trends/<filename>')
+def visualize_trends(filename):
+    cleaned_file_path = os.path.join(app.config['CLEANED_FOLDER'], filename)
+    if not os.path.exists(cleaned_file_path):
+        flash(f"File {filename} not found.", "danger")
+        return redirect(url_for('home'))
+
+    try:
+        df = pd.read_csv(cleaned_file_path) if filename.endswith('.csv') else pd.read_excel(cleaned_file_path)
+        if 'Total Sales Volume' not in df.columns:
+            flash("The file must contain 'Total Sales Volume' column.", "danger")
+            return redirect(url_for('summary', filename=filename))
+
+        plt.figure(figsize=(12, 8))
+        sns.lineplot(data=df, x=np.arange(len(df)), y='Total Sales Volume')
+        plt.title('Sales Trend')
+        plt.xlabel('Time')
+        plt.ylabel('Total Sales Volume')
+        trend_chart_path = os.path.join(app.config['CHARTS_FOLDER'], f'trend_{filename}.png')
+        plt.savefig(trend_chart_path)
+        plt.close()
+
+        return render_template('visualize_trends.html', trend_chart_url=f'trend_{filename}.png')
+
+    except Exception as e:
+        flash(f"Error visualizing trends: {e}", "danger")
+        return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)
