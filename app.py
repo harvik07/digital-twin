@@ -356,23 +356,18 @@ def signup():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("Login route accessed")
     if current_user.is_authenticated:
-        print("User is already authenticated")
         return redirect(url_for('home'))
     if request.method == 'POST':
-        print("POST request received")
         email = request.form.get('email')
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password, password):
-            print("User authenticated successfully")
             login_user(user, remember=remember)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
-            print("Login unsuccessful")
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html')
 
