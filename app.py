@@ -66,49 +66,7 @@ def load_user(user_id):
 # 🏠 Home - File Upload & Cleaning
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if not current_user.is_authenticated:
-        return redirect(url_for('login'))
-    if request.method == 'POST':
-        file = request.files['file']
-        if file.filename == '':
-            flash("No file selected!", "danger")
-            return redirect(request.url)
-
-        file_ext = file.filename.rsplit('.', 1)[1].lower()
-        if file_ext not in ['csv', 'xlsx']:
-            flash("Invalid file format! Please upload a CSV or Excel file.", "danger")
-            return redirect(request.url)
-
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(file_path)
-
-        # Detect file encoding
-        with open(file_path, 'rb') as f:
-            result = chardet.detect(f.read())
-            encoding = result['encoding']
-
-        # Load file with detected encoding
-        if file_ext == 'csv':
-            chunks = pd.read_csv(file_path, encoding=encoding, chunksize=10000)
-            df = pd.concat(chunks)
-        else:
-            df = pd.read_excel(file_path)
-
-        # Data Cleaning (Remove duplicates, drop NaN values, fill missing values)
-        df = df.drop_duplicates().dropna().fillna(0)
-
-        # Save cleaned file
-        cleaned_filename = "cleaned_warehouse.csv"
-        cleaned_path = os.path.join(app.config['CLEANED_FOLDER'], cleaned_filename)
-        df.to_csv(cleaned_path, index=False) if file_ext == 'csv' else df.to_excel(cleaned_path, index=False)
-
-        # Generate summary statistics
-        summary = df.describe().to_html()
-
-        # Redirect to summary page
-        return render_template("summary.html", summary=summary, cleaned_filename=cleaned_filename)
-
-    return render_template("index.html")
+    return render_template('index.html')
 
 # 📊 Summary Page - Show Summary & Download Option
 @app.route('/summary/<filename>')
@@ -388,7 +346,7 @@ def signup():
         warehouse_type = request.form.get('warehouse_type')
         password = request.form.get('password')
         workspace_name = request.form.get('workspace_name')
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        hashed_password = generate_password_hash(password).decode('utf-8')
         user = User(name=name, email=email, company_name=company_name, warehouse_type=warehouse_type, password=hashed_password, workspace_name=workspace_name)
         db.session.add(user)
         db.session.commit()
@@ -398,25 +356,30 @@ def signup():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    print("Login route accessed")
     if current_user.is_authenticated:
+        print("User is already authenticated")
         return redirect(url_for('home'))
     if request.method == 'POST':
+        print("POST request received")
         email = request.form.get('email')
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
         user = User.query.filter_by(email=email).first()
-        if user and bcrypt.check_password_hash(user.password, password):
+        if user and check_password_hash(user.password, password):
+            print("User authenticated successfully")
             login_user(user, remember=remember)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
+            print("Login unsuccessful")
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html')
 
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 @app.route('/dashboard')
 @login_required
@@ -517,6 +480,10 @@ def visualize_trends(filename):
     except Exception as e:
         flash(f"Error visualizing trends: {e}", "danger")
         return redirect(url_for('home'))
+
+@app.route('/test_login_url')
+def test_login_url():
+    return url_for('login')
 
 if __name__ == '__main__':
     app.run(debug=True)

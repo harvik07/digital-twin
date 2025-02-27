@@ -1,40 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Signup</h2>
-<form method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
-    <label for="company_name">Company Name:</label>
-    <input type="text" id="company_name" name="company_name" required><br>
-    <label for="warehouse_type">Warehouse Type:</label>
-    <input type="text" id="warehouse_type" name="warehouse_type" required><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br>
-    <label for="workspace_name">Workspace Name:</label>
-    <input type="text" id="workspace_name" name="workspace_name" required><br>
-    <button type="submit">Signup</button>
-</form>
-
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form method="POST" action="{{ url_for('signup') }}">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="company_name" placeholder="Company Name" required>
+        <input type="text" name="warehouse_type" placeholder="Warehouse Type" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="workspace_name" placeholder="Workspace Name" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+</div>
 {% endblock %}
-
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        company_name = request.form.get('company_name')
-        warehouse_type = request.form.get('warehouse_type')
-        password = request.form.get('password')
-        workspace_name = request.form.get('workspace_name')
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        user = User(name=name, email=email, company_name=company_name, warehouse_type=warehouse_type, password=hashed_password, workspace_name=workspace_name)
-        db.session.add(user)
-        db.session.commit()
-        flash('Your account has been created! You are now able to log in', 'success')
-        return redirect(url_for('login'))
-    return render_template('signup.html')
