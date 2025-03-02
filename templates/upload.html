@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV - Twin Ware</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='css/image/warehouse_1.png.webp') }}") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .upload-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .drop-area {
+            border: 2px dashed #ccc;
+            padding: 30px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .drop-area img {
+            width: 50px;
+        }
+        .upload-btn {
+            background: #5c67f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        .upload-btn:hover {
+            background: #4a54e1;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">TwinWare</h1>
+    </header>
+    <div class="upload-container">
+        <h2>Upload CSV</h2>
+        <form action="{{ url_for('upload_csv') }}" method="post" enctype="multipart/form-data">
+            <label for="csvFile" class="drop-area">
+                <input type="file" id="csvFile" name="csvFile" accept=".csv" hidden>
+                <p>CLICK TO UPLOAD CSV FILE<br>or drag and drop it here</p>
+            </label>
+            <div class="file-name" id="fileName"></div>
+            <button type="submit" class="upload-btn">Upload and Clean</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('csvFile').addEventListener('change', function() {
+            const fileName = this.files[0].name;
+            document.getElementById('fileName').textContent = `Selected File: ${fileName}`;
+        });
+    </script>
+</body>
+</html>

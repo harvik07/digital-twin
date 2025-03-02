@@ -299,3 +299,5 @@ Product_ID,Product Name,Category,Shelf Number,Quantity Available,Reorder_Level,S
 1298,LED Lamp,Lighting,L9,7,8,IKEA Supplies,417.91,785.15,10/25/2025,Reorder Needed,348,273232.2,367.24,40,49.71428571,7,B,46.77
 1299,Smartphone Charger,Electronics,O0,37,12,IKEA Supplies,282.49,470.6,10/26/2025,Low Stock,353,166121.8,188.11,40,9.540540541,22,B,39.97
 1300,Clothes Dryer,Appliances,T7,10,14,Light Co.,57.05,77,10/27/2025,Available,449,34573,19.95,40,44.9,49,D,25.91
+,,,,,,,,,,,,,,,,,,
+,,,,99,,,,,,,496,468422.7,,,,,,49.96

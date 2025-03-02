@@ -175,3 +175,31 @@ header {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+/* Upload Container */
+.upload-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #3b82f6;
+    border-radius: 10px;
+}
+
+/* Drop Area */
+#drop-area {
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Button */
+button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}

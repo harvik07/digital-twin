@@ -1,0 +1,303 @@
+Row ID,Order ID,Order Date,Ship Date,Ship Mode,Customer ID,Customer Name,Segment,Country,City,State,Shelf_number,Region,Product ID,Category,Sub-Category,Product_Name,Total Sales Volume,Quantity_Available,Discount,Profit,Purchase_Price,Selling_Price,Total Revenue
+1,CA-2016-152156,11/8/2016,11/11/2016,Second Class,CG-12520,Claire Gute,Consumer,United States,Henderson,Kentucky,42420,South,FUR-BO-10001798,Furniture,Bookcases,Bush Somerset Collection Bookcase,261.96,2,0,41.9136,474.46,937.87,173505.95
+2,CA-2016-152156,11/8/2016,11/11/2016,Second Class,CG-12520,Claire Gute,Consumer,United States,Henderson,Kentucky,42420,South,FUR-CH-10000454,Furniture,Chairs,"Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back",731.94,3,0,219.582,31.91,58.56,28577.28
+3,CA-2016-138688,6/12/2016,6/16/2016,Second Class,DV-13045,Darrin Van Huff,Corporate,United States,Los Angeles,California,90036,West,OFF-LA-10000240,Office Supplies,Labels,Self-Adhesive Address Labels for Typewriters by Universal,14.62,2,0,6.8714,115.07,139.67,42739.02
+4,US-2015-108966,10/11/2015,10/18/2015,Standard Class,SO-20335,Sean O'Donnell,Consumer,United States,Fort Lauderdale,Florida,33311,South,FUR-TA-10000577,Furniture,Tables,Bretford CR4500 Series Slim Rectangular Table,957.5775,5,0.45,-383.031,416.67,463.16,218611.52
+5,US-2015-108966,10/11/2015,10/18/2015,Standard Class,SO-20335,Sean O'Donnell,Consumer,United States,Fort Lauderdale,Florida,33311,South,OFF-ST-10000760,Office Supplies,Storage,Eldon Fold 'N Roll Cart System,22.368,2,0.2,2.5164,687,935.2,191716
+6,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,FUR-FU-10001487,Furniture,Furnishings,"Eldon Expressions Wood and Plastic Desk Accessories, Cherry Wood",48.86,7,0,14.1694,202.64,329.83,81138.18
+7,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,OFF-AR-10002833,Office Supplies,Art,Newell 322,7.28,4,0,1.9656,353.52,517.09,178396.05
+8,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,TEC-PH-10002275,Technology,Phones,Mitel 5320 IP Phone VoIP phone,907.152,6,0.2,90.7152,38.48,60.74,7106.58
+9,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,OFF-BI-10003910,Office Supplies,Binders,DXL Angle-View Binders with Locking Rings by Samsill,18.504,3,0.2,5.7825,109.83,165.38,43164.18
+10,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,OFF-AP-10002892,Office Supplies,Appliances,Belkin F5C206VTEL 6 Outlet Surge,114.9,5,0,34.47,585.13,986.9,406602.8
+11,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,FUR-TA-10001539,Furniture,Tables,Chromcraft Rectangular Conference Tables,1706.184,9,0.2,85.3092,566.62,965.82,468422.7
+12,CA-2014-115812,6/9/2014,6/14/2014,Standard Class,BH-11710,Brosina Hoffman,Consumer,United States,Los Angeles,California,90032,West,TEC-PH-10002033,Technology,Phones,Konftel 250 Conference phone - Charcoal black,911.424,4,0.2,68.3568,18.56,24.84,5539.32
+13,CA-2017-114412,4/15/2017,4/20/2017,Standard Class,AA-10480,Andrew Allen,Consumer,United States,Concord,North Carolina,28027,South,OFF-PA-10002365,Office Supplies,Paper,Xerox 1967,15.552,3,0.2,5.4432,646.37,952.78,141964.22
+14,CA-2016-161389,12/5/2016,12/10/2016,Standard Class,IM-15070,Irene Maddox,Consumer,United States,Seattle,Washington,98103,West,OFF-BI-10003656,Office Supplies,Binders,Fellowes PB200 Plastic Comb Binding Machine,407.976,3,0.2,132.5922,579.1,646.34,232036.06
+15,US-2015-118983,11/22/2015,11/26/2015,Standard Class,HP-14815,Harold Pawlan,Home Office,United States,Fort Worth,Texas,76106,Central,OFF-AP-10002311,Office Supplies,Appliances,"Holmes Replacement Filter for HEPA Air Cleaner, Very Large Room, HEPA Filter",68.81,5,0.8,-123.858,721.39,870.56,369988
+16,US-2015-118983,11/22/2015,11/26/2015,Standard Class,HP-14815,Harold Pawlan,Home Office,United States,Fort Worth,Texas,76106,Central,OFF-BI-10000756,Office Supplies,Binders,Storex DuraTech Recycled Plastic Frosted Binders,2.544,3,0.8,-3.816,343.53,465.65,78229.2
+17,CA-2014-105893,11/11/2014,11/18/2014,Standard Class,PK-19075,Pete Kriz,Consumer,United States,Madison,Wisconsin,53711,Central,OFF-ST-10004186,Office Supplies,Storage,"Stur-D-Stor Shelving, Vertical 5-Shelf: 72""H x 36""W x 18 1/2""D",665.88,6,0,13.3176,358.13,525.28,137098.08
+18,CA-2014-167164,5/13/2014,5/15/2014,Second Class,AG-10270,Alejandro Grove,Consumer,United States,West Jordan,Utah,84084,West,OFF-ST-10000107,Office Supplies,Storage,Fellowes Super Stor/Drawer,55.5,2,0,9.99,381.07,499.07,91828.88
+19,CA-2014-143336,8/27/2014,9/1/2014,Second Class,ZD-21925,Zuschuss Donatelli,Consumer,United States,San Francisco,California,94109,West,OFF-AR-10003056,Office Supplies,Art,Newell 341,8.56,2,0,2.4824,485.39,673.53,56576.52
+20,CA-2014-143336,8/27/2014,9/1/2014,Second Class,ZD-21925,Zuschuss Donatelli,Consumer,United States,San Francisco,California,94109,West,TEC-PH-10001949,Technology,Phones,Cisco SPA 501G IP Phone,213.48,3,0.2,16.011,118.12,156.86,51763.8
+21,CA-2014-143336,8/27/2014,9/1/2014,Second Class,ZD-21925,Zuschuss Donatelli,Consumer,United States,San Francisco,California,94109,West,OFF-BI-10002215,Office Supplies,Binders,"Wilson Jones Hanging View Binder, White, 1""",22.72,4,0.2,7.384,33.06,49.37,22315.24
+22,CA-2016-137330,12/9/2016,12/13/2016,Standard Class,KB-16585,Ken Black,Corporate,United States,Fremont,Nebraska,68025,Central,OFF-AR-10000246,Office Supplies,Art,Newell 318,19.46,7,0,5.0596,180.76,321.77,130316.85
+23,CA-2016-137330,12/9/2016,12/13/2016,Standard Class,KB-16585,Ken Black,Corporate,United States,Fremont,Nebraska,68025,Central,OFF-AP-10001492,Office Supplies,Appliances,"Acco Six-Outlet Power Strip, 4' Cord Length",60.34,7,0,15.6884,463.36,710.59,135722.69
+24,US-2017-156909,7/16/2017,7/18/2017,Second Class,SF-20065,Sandra Flanagan,Consumer,United States,Philadelphia,Pennsylvania,19140,East,FUR-CH-10002774,Furniture,Chairs,"Global Deluxe Stacking Chair, Gray",71.372,2,0.3,-1.0196,155.79,217.82,28098.78
+25,CA-2015-106320,9/25/2015,9/30/2015,Standard Class,EB-13870,Emily Burns,Consumer,United States,Orem,Utah,84057,West,FUR-TA-10000577,Furniture,Tables,Bretford CR4500 Series Slim Rectangular Table,1044.63,3,0,240.2649,500.49,679.96,249545.32
+26,CA-2016-121755,1/16/2016,1/20/2016,Second Class,EH-13945,Eric Hoffmann,Consumer,United States,Los Angeles,California,90049,West,OFF-BI-10001634,Office Supplies,Binders,Wilson Jones Active Use Binders,11.648,2,0.2,4.2224,521.7,970.51,131989.36
+27,CA-2016-121755,1/16/2016,1/20/2016,Second Class,EH-13945,Eric Hoffmann,Consumer,United States,Los Angeles,California,90049,West,TEC-AC-10003027,Technology,Accessories,Imation 8GB Mini TravelDrive USB 2.0 Flash Drive,90.57,3,0,11.7741,76.71,112.02,43799.82
+28,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,FUR-BO-10004834,Furniture,Bookcases,"Riverside Palais Royal Lawyers Bookcase, Royale Cherry Finish",3083.43,7,0.5,-1665.0522,419.77,679.15,42786.45
+29,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,OFF-BI-10000474,Office Supplies,Binders,Avery Recycled Flexi-View Covers for Binding Systems,9.618,2,0.7,-7.0532,260.77,454.88,131915.2
+30,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,FUR-FU-10004848,Furniture,Furnishings,"Howard Miller 13-3/4"" Diameter Brushed Chrome Round Wall Clock",124.2,3,0.2,15.525,447.71,870.78,125392.32
+31,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,OFF-EN-10001509,Office Supplies,Envelopes,Poly String Tie Envelopes,3.264,2,0.2,1.1016,119.88,193.61,56340.51
+32,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,OFF-AR-10004042,Office Supplies,Art,"BOSTON Model 1800 Electric Pencil Sharpeners, Putty/Woodgrain",86.304,6,0.2,9.7092,419.55,698.77,190764.21
+33,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,OFF-BI-10001525,Office Supplies,Binders,"Acco Pressboard Covers with Storage Hooks, 14 7/8"" x 11"", Executive Red",6.858,6,0.7,-5.715,732.45,841.35,47115.6
+34,US-2015-150630,9/17/2015,9/21/2015,Standard Class,TB-21520,Tracy Blumstein,Consumer,United States,Philadelphia,Pennsylvania,19140,East,OFF-AR-10001683,Office Supplies,Art,Lumber Crayons,15.76,2,0.2,3.546,653.35,945.72,104029.2
+35,CA-2017-107727,10/19/2017,10/23/2017,Second Class,MA-17560,Matt Abelman,Home Office,United States,Houston,Texas,77095,Central,OFF-PA-10000249,Office Supplies,Paper,Easy-staple paper,29.472,3,0.2,9.9468,574.35,689.58,106884.9
+36,CA-2016-117590,12/8/2016,12/10/2016,First Class,GH-14485,Gene Hale,Corporate,United States,Richardson,Texas,75080,Central,TEC-PH-10004977,Technology,Phones,GE 30524EE4,1097.544,7,0.2,123.4737,333.83,507.23,177530.5
+37,CA-2016-117590,12/8/2016,12/10/2016,First Class,GH-14485,Gene Hale,Corporate,United States,Richardson,Texas,75080,Central,FUR-FU-10003664,Furniture,Furnishings,"Electrix Architect's Clamp-On Swing Arm Lamp, Black",190.92,5,0.6,-147.963,343.15,625.49,203284.25
+38,CA-2015-117415,12/27/2015,12/31/2015,Standard Class,SN-20710,Steve Nguyen,Home Office,United States,Houston,Texas,77041,Central,OFF-EN-10002986,Office Supplies,Envelopes,"#10-4 1/8"" x 9 1/2"" Premium Diagonal Seam Envelopes",113.328,9,0.2,35.415,585.93,871.53,99354.42
+39,CA-2015-117415,12/27/2015,12/31/2015,Standard Class,SN-20710,Steve Nguyen,Home Office,United States,Houston,Texas,77041,Central,FUR-BO-10002545,Furniture,Bookcases,"Atlantic Metals Mobile 3-Shelf Bookcases, Custom Colors",532.3992,3,0.32,-46.9764,348.8,579.2,167388.8
+40,CA-2015-117415,12/27/2015,12/31/2015,Standard Class,SN-20710,Steve Nguyen,Home Office,United States,Houston,Texas,77041,Central,FUR-CH-10004218,Furniture,Chairs,"Global Fabric Manager's Chair, Dark Gray",212.058,3,0.3,-15.147,38.28,49.78,23048.14
+41,CA-2015-117415,12/27/2015,12/31/2015,Standard Class,SN-20710,Steve Nguyen,Home Office,United States,Houston,Texas,77041,Central,TEC-PH-10000486,Technology,Phones,Plantronics HL10 Handset Lifter,371.168,4,0.2,41.7564,680.44,932.33,214435.9
+42,CA-2017-120999,9/10/2017,9/15/2017,Standard Class,LC-16930,Linda Cazamias,Corporate,United States,Naperville,Illinois,60540,Central,TEC-PH-10004093,Technology,Phones,Panasonic Kx-TS550,147.168,4,0.2,16.5564,454.98,695.74,188545.54
+43,CA-2016-101343,7/17/2016,7/22/2016,Standard Class,RA-19885,Ruben Ausman,Corporate,United States,Los Angeles,California,90049,West,OFF-ST-10003479,Office Supplies,Storage,"Eldon Base for stackable storage shelf, platinum",77.88,2,0,3.894,529.57,682.98,258166.44
+44,CA-2017-139619,9/19/2017,9/23/2017,Standard Class,ES-14080,Erin Smith,Corporate,United States,Melbourne,Florida,32935,South,OFF-ST-10003282,Office Supplies,Storage,"Advantus 10-Drawer Portable Organizer, Chrome Metal Frame, Smoke Drawers",95.616,2,0.2,9.5616,207.83,231.36,72878.4
+45,CA-2016-118255,3/11/2016,3/13/2016,First Class,ON-18715,Odella Nelson,Corporate,United States,Eagan,Minnesota,55122,Central,TEC-AC-10000171,Technology,Accessories,"Verbatim 25 GB 6x Blu-ray Single Layer Recordable Disc, 25/Pack",45.98,2,0,19.7714,507.11,665.71,330192.16
+46,CA-2016-118255,3/11/2016,3/13/2016,First Class,ON-18715,Odella Nelson,Corporate,United States,Eagan,Minnesota,55122,Central,OFF-BI-10003291,Office Supplies,Binders,Wilson Jones Leather-Like Binders with DublLock Round Rings,17.46,2,0,8.2062,284.43,405.99,106369.38
+47,CA-2014-146703,10/20/2014,10/25/2014,Second Class,PO-18865,Patrick O'Donnell,Consumer,United States,Westland,Michigan,48185,Central,OFF-ST-10001713,Office Supplies,Storage,"Gould Plastics 9-Pocket Panel Bin, 18-3/8w x 5-1/4d x 20-1/2h, Black",211.96,4,0,8.4784,387.71,658.21,160603.24
+48,CA-2016-169194,6/20/2016,6/25/2016,Standard Class,LH-16900,Lena Hernandez,Consumer,United States,Dover,Delaware,19901,East,TEC-AC-10002167,Technology,Accessories,Imation 8gb Micro Traveldrive Usb 2.0 Flash Drive,45,3,0,4.95,64.05,124.46,41943.02
+49,CA-2016-169194,6/20/2016,6/25/2016,Standard Class,LH-16900,Lena Hernandez,Consumer,United States,Dover,Delaware,19901,East,TEC-PH-10003988,Technology,Phones,"LF Elite 3D Dazzle Designer Hard Case Cover, Lf Stylus Pen and Wiper For Apple Iphone 5c Mini Lite",21.8,2,0,6.104,473.81,664.69,261223.17
+50,CA-2015-115742,4/18/2015,4/22/2015,Standard Class,DP-13000,Darren Powers,Consumer,United States,New Albany,Indiana,47150,Central,OFF-BI-10004410,Office Supplies,Binders,"C-Line Peel & Stick Add-On Filing Pockets, 8-3/4 x 5-1/8, 10/Pack",38.22,6,0,17.9634,840.28,999.43,281839.26
+51,CA-2015-115742,4/18/2015,4/22/2015,Standard Class,DP-13000,Darren Powers,Consumer,United States,New Albany,Indiana,47150,Central,OFF-LA-10002762,Office Supplies,Labels,Avery 485,75.18,6,0,35.3346,49.63,67.25,5716.25
+52,CA-2015-115742,4/18/2015,4/22/2015,Standard Class,DP-13000,Darren Powers,Consumer,United States,New Albany,Indiana,47150,Central,FUR-FU-10001706,Furniture,Furnishings,Longer-Life Soft White Bulbs,6.16,2,0,2.9568,548.57,977.63,155443.17
+53,CA-2015-115742,4/18/2015,4/22/2015,Standard Class,DP-13000,Darren Powers,Consumer,United States,New Albany,Indiana,47150,Central,FUR-CH-10003061,Furniture,Chairs,"Global Leather Task Chair, Black",89.99,1,0,17.0981,313.14,418.77,164157.84
+54,CA-2016-105816,12/11/2016,12/17/2016,Standard Class,JM-15265,Janet Molinari,Corporate,United States,New York City,New York,10024,East,OFF-FA-10000304,Office Supplies,Fasteners,Advantus Push Pins,15.26,7,0,6.2566,599.99,873.34,202614.88
+55,CA-2016-105816,12/11/2016,12/17/2016,Standard Class,JM-15265,Janet Molinari,Corporate,United States,New York City,New York,10024,East,TEC-PH-10002447,Technology,Phones,AT&T CL83451 4-Handset Telephone,1029.95,5,0,298.6855,541.93,786.74,353246.26
+56,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,OFF-ST-10000604,Office Supplies,Storage,Home/Office Personal File Carts,208.56,6,0,52.14,464.58,575.68,147374.08
+57,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,OFF-PA-10001569,Office Supplies,Paper,Xerox 232,32.4,5,0,15.552,638.51,743.68,353991.68
+58,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,FUR-CH-10003968,Furniture,Chairs,Novimex Turbo Task Chair,319.41,5,0.1,7.098,724.19,880.95,236975.55
+59,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,OFF-PA-10000587,Office Supplies,Paper,"Array Parchment Paper, Assorted Colors",14.56,2,0,6.9888,315.1,416.06,86540.48
+60,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,TEC-AC-10002167,Technology,Accessories,Imation 8gb Micro Traveldrive Usb 2.0 Flash Drive,30,2,0,3.3,229.23,340.49,122916.89
+61,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,OFF-BI-10001460,Office Supplies,Binders,Plastic Binding Combs,48.48,4,0.2,16.362,531.32,674.24,231264.32
+62,CA-2016-111682,6/17/2016,6/18/2016,First Class,TB-21055,Ted Butterfield,Consumer,United States,Troy,New York,12180,East,OFF-AR-10001868,Office Supplies,Art,Prang Dustless Chalk Sticks,1.68,1,0,0.84,560.92,811.69,193993.91
+63,CA-2015-135545,11/24/2015,11/30/2015,Standard Class,KM-16720,Kunst Miller,Consumer,United States,Los Angeles,California,90004,West,TEC-AC-10004633,Technology,Accessories,"Verbatim 25 GB 6x Blu-ray Single Layer Recordable Disc, 3/Pack",13.98,2,0,6.1512,523.02,767.04,348236.16
+64,CA-2015-135545,11/24/2015,11/30/2015,Standard Class,KM-16720,Kunst Miller,Consumer,United States,Los Angeles,California,90004,West,OFF-BI-10001078,Office Supplies,Binders,"Acco PRESSTEX Data Binder with Storage Hooks, Dark Blue, 14 7/8"" X 11""",25.824,6,0.2,9.3612,423.44,801.86,211691.04
+65,CA-2015-135545,11/24/2015,11/30/2015,Standard Class,KM-16720,Kunst Miller,Consumer,United States,Los Angeles,California,90004,West,OFF-PA-10003892,Office Supplies,Paper,Xerox 1943,146.73,3,0,68.9631,400.61,446.87,208241.42
+66,CA-2015-135545,11/24/2015,11/30/2015,Standard Class,KM-16720,Kunst Miller,Consumer,United States,Los Angeles,California,90004,West,FUR-FU-10000397,Furniture,Furnishings,Luxo Economy Swing Arm Lamp,79.76,4,0,22.3328,501.73,821.48,157724.16
+67,US-2015-164175,4/30/2015,5/5/2015,Standard Class,PS-18970,Paul Stevenson,Home Office,United States,Chicago,Illinois,60610,Central,FUR-CH-10001146,Furniture,Chairs,"Global Value Mid-Back Manager's Chair, Gray",213.115,5,0.3,-15.2225,99.06,137.8,45060.6
+68,CA-2014-106376,12/5/2014,12/10/2014,Standard Class,BS-11590,Brendan Sweed,Corporate,United States,Gilbert,Arizona,85234,West,OFF-AR-10002671,Office Supplies,Art,"Hunt BOSTON Model 1606 High-Volume Electric Pencil Sharpener, Beige",1113.024,8,0.2,111.3024,337.42,553.6,63664
+69,CA-2014-106376,12/5/2014,12/10/2014,Standard Class,BS-11590,Brendan Sweed,Corporate,United States,Gilbert,Arizona,85234,West,TEC-PH-10002726,Technology,Phones,netTALK DUO VoIP Telephone Service,167.968,4,0.2,62.988,22.19,25.64,11076.48
+70,CA-2016-119823,6/4/2016,6/6/2016,First Class,KD-16270,Karen Daniels,Consumer,United States,Springfield,Virginia,22153,South,OFF-PA-10000482,Office Supplies,Paper,"Snap-A-Way Black Print Carbonless Ruled Speed Letter, Triplicate",75.88,2,0,35.6636,303.47,338.09,101765.09
+71,CA-2016-106075,9/18/2016,9/23/2016,Standard Class,HM-14980,Henry MacAllister,Consumer,United States,New York City,New York,10009,East,OFF-BI-10004654,Office Supplies,Binders,Avery Binding System Hidden Tab Executive Style Index Sets,4.616,1,0.2,1.731,264.54,379.13,48907.77
+72,CA-2017-114440,9/14/2017,9/17/2017,Second Class,TB-21520,Tracy Blumstein,Consumer,United States,Jackson,Michigan,49201,Central,OFF-PA-10004675,Office Supplies,Paper,"Telephone Message Books with Fax/Mobile Section, 5 1/2"" x 3 3/16""",19.05,3,0,8.763,286.06,408.25,69810.75
+73,US-2015-134026,4/26/2015,5/2/2015,Standard Class,JE-15745,Joel Eaton,Consumer,United States,Memphis,Tennessee,38109,South,FUR-CH-10000513,Furniture,Chairs,High-Back Leather Manager's Chair,831.936,8,0.2,-114.3912,508.36,701.56,57527.92
+74,US-2015-134026,4/26/2015,5/2/2015,Standard Class,JE-15745,Joel Eaton,Consumer,United States,Memphis,Tennessee,38109,South,FUR-FU-10003708,Furniture,Furnishings,"Tenex Traditional Chairmats for Medium Pile Carpet, Standard Lip, 36"" x 48""",97.04,2,0.2,1.213,277.98,400.79,44086.9
+75,US-2015-134026,4/26/2015,5/2/2015,Standard Class,JE-15745,Joel Eaton,Consumer,United States,Memphis,Tennessee,38109,South,OFF-ST-10004123,Office Supplies,Storage,Safco Industrial Wire Shelving System,72.784,1,0.2,-18.196,238.99,459.72,198599.04
+76,US-2017-118038,12/9/2017,12/11/2017,First Class,KB-16600,Ken Brennan,Corporate,United States,Houston,Texas,77041,Central,OFF-BI-10004182,Office Supplies,Binders,Economy Binders,1.248,3,0.8,-1.9344,130.57,252.79,21487.15
+77,US-2017-118038,12/9/2017,12/11/2017,First Class,KB-16600,Ken Brennan,Corporate,United States,Houston,Texas,77041,Central,FUR-FU-10000260,Furniture,Furnishings,"6"" Cubicle Wall Clock, Black",9.708,3,0.6,-5.8248,202.5,385.79,44751.64
+78,US-2017-118038,12/9/2017,12/11/2017,First Class,KB-16600,Ken Brennan,Corporate,United States,Houston,Texas,77041,Central,OFF-ST-10000615,Office Supplies,Storage,"SimpliFile Personal File, Black Granite, 15w x 6-15/16d x 11-1/4h",27.24,3,0.2,2.724,208.61,242.72,67233.44
+79,US-2014-147606,11/26/2014,12/1/2014,Second Class,JE-15745,Joel Eaton,Consumer,United States,Houston,Texas,77070,Central,FUR-FU-10003194,Furniture,Furnishings,"Eldon Expressions Desk Accessory, Wood Pencil Holder, Oak",19.3,5,0.6,-14.475,75.36,91.73,42929.64
+80,CA-2016-127208,6/12/2016,6/15/2016,First Class,SC-20770,Stewart Carmichael,Corporate,United States,Decatur,Alabama,35601,South,OFF-AP-10002118,Office Supplies,Appliances,"1.7 Cubic Foot Compact ""Cube"" Office Refrigerators",208.16,1,0,56.2032,409.48,611.38,48299.02
+81,CA-2016-127208,6/12/2016,6/15/2016,First Class,SC-20770,Stewart Carmichael,Corporate,United States,Decatur,Alabama,35601,South,OFF-BI-10002309,Office Supplies,Binders,Avery Heavy-Duty EZD  Binder With Locking Rings,16.74,3,0,8.0352,581.28,674.85,130920.9
+82,CA-2014-139451,10/12/2014,10/16/2014,Standard Class,DN-13690,Duane Noonan,Consumer,United States,San Francisco,California,94122,West,OFF-AR-10002053,Office Supplies,Art,"Premium Writing Pencils, Soft, #2 by Central Association for the Blind",14.9,5,0,4.172,418.34,627.1,33236.3
+83,CA-2014-139451,10/12/2014,10/16/2014,Standard Class,DN-13690,Duane Noonan,Consumer,United States,San Francisco,California,94122,West,OFF-ST-10002370,Office Supplies,Storage,"Sortfiler Multipurpose Personal File Organizer, Black",21.39,1,0,6.2031,369.68,474.22,219089.64
+84,CA-2015-149734,9/3/2015,9/8/2015,Standard Class,JC-16105,Julie Creighton,Corporate,United States,Durham,North Carolina,27707,South,OFF-EN-10000927,Office Supplies,Envelopes,Jet-Pak Recycled Peel 'N' Seal Padded Mailers,200.984,7,0.2,62.8075,224.59,392.19,136089.93
+,,,,,,,,,,,,,,,,,,,,,703.16,866.07,169749.72
+,,,,,,,,,,,,,,,,,,,,,383.88,528.7,51283.9
+,,,,,,,,,,,,,,,,,,,,,340.33,489.6,223257.6
+,,,,,,,,,,,,,,,,,,,,,34.12,45.13,11327.63
+,,,,,,,,,,,,,,,,,,,,,211.14,354.42,63795.6
+,,,,,,,,,,,,,,,,,,,,,304.09,392.59,67918.07
+,,,,,,,,,,,,,,,,,,,,,327.19,410.85,86278.5
+,,,,,,,,,,,,,,,,,,,,,348.3,588.57,91228.35
+,,,,,,,,,,,,,,,,,,,,,371.08,542.93,96641.54
+,,,,,,,,,,,,,,,,,,,,,423.38,615.75,249994.5
+,,,,,,,,,,,,,,,,,,,,,656.89,769.59,284748.3
+,,,,,,,,,,,,,,,,,,,,,472.63,816.73,191931.55
+,,,,,,,,,,,,,,,,,,,,,482.12,723.76,128829.28
+,,,,,,,,,,,,,,,,,,,,,683.3,956.41,321353.76
+,,,,,,,,,,,,,,,,,,,,,21.64,37.87,5453.28
+,,,,,,,,,,,,,,,,,,,,,133.23,211.86,82837.26
+,,,,,,,,,,,,,,,,,,,,,23.46,27.41,11786.3
+,,,,,,,,,,,,,,,,,,,,,339.36,654.53,302392.86
+,,,,,,,,,,,,,,,,,,,,,548.36,900.07,72005.6
+,,,,,,,,,,,,,,,,,,,,,192.66,258.61,55601.15
+,,,,,,,,,,,,,,,,,,,,,703.32,928.49,295259.82
+,,,,,,,,,,,,,,,,,,,,,53.73,79.06,38027.86
+,,,,,,,,,,,,,,,,,,,,,515.68,935.75,379914.5
+,,,,,,,,,,,,,,,,,,,,,290.54,364.59,177555.33
+,,,,,,,,,,,,,,,,,,,,,83.6,119.39,18744.23
+,,,,,,,,,,,,,,,,,,,,,396.03,496.15,222275.2
+,,,,,,,,,,,,,,,,,,,,,209.06,271.64,73886.08
+,,,,,,,,,,,,,,,,,,,,,224.6,299.18,101122.84
+,,,,,,,,,,,,,,,,,,,,,184,321.14,118821.8
+,,,,,,,,,,,,,,,,,,,,,546.87,806.97,191251.89
+,,,,,,,,,,,,,,,,,,,,,448.04,548.38,263770.78
+,,,,,,,,,,,,,,,,,,,,,177.52,325.08,90372.24
+,,,,,,,,,,,,,,,,,,,,,311.85,618.13,286194.19
+,,,,,,,,,,,,,,,,,,,,,477.74,721.83,108274.5
+,,,,,,,,,,,,,,,,,,,,,201.49,287.17,60592.87
+,,,,,,,,,,,,,,,,,,,,,234.69,425.28,46355.52
+,,,,,,,,,,,,,,,,,,,,,71.92,139.45,42811.15
+,,,,,,,,,,,,,,,,,,,,,168.26,197.53,55110.87
+,,,,,,,,,,,,,,,,,,,,,454.98,687.5,192500
+,,,,,,,,,,,,,,,,,,,,,148.85,197.81,93761.94
+,,,,,,,,,,,,,,,,,,,,,408.58,534.66,225626.52
+,,,,,,,,,,,,,,,,,,,,,523.97,714.87,38602.98
+,,,,,,,,,,,,,,,,,,,,,78.43,124.74,44656.92
+,,,,,,,,,,,,,,,,,,,,,443.98,575.97,55869.09
+,,,,,,,,,,,,,,,,,,,,,203.81,271.43,39628.78
+,,,,,,,,,,,,,,,,,,,,,762.53,963.67,108894.71
+,,,,,,,,,,,,,,,,,,,,,283.58,493.87,161495.49
+,,,,,,,,,,,,,,,,,,,,,486.42,809.87,242151.13
+,,,,,,,,,,,,,,,,,,,,,304.95,559.22,132535.14
+,,,,,,,,,,,,,,,,,,,,,40.3,62.54,29393.8
+,,,,,,,,,,,,,,,,,,,,,369.98,640.49,88387.62
+,,,,,,,,,,,,,,,,,,,,,692.82,952.38,358094.88
+,,,,,,,,,,,,,,,,,,,,,501.28,609.58,213353
+,,,,,,,,,,,,,,,,,,,,,476.51,822.81,162916.38
+,,,,,,,,,,,,,,,,,,,,,453.49,886.52,320033.72
+,,,,,,,,,,,,,,,,,,,,,183.59,243.52,51139.2
+,,,,,,,,,,,,,,,,,,,,,129.37,227.8,79046.6
+,,,,,,,,,,,,,,,,,,,,,551.08,618.76,68063.6
+,,,,,,,,,,,,,,,,,,,,,372.93,422.81,90904.15
+,,,,,,,,,,,,,,,,,,,,,692.98,843.06,274837.56
+,,,,,,,,,,,,,,,,,,,,,467.99,902.02,353591.84
+,,,,,,,,,,,,,,,,,,,,,295.84,366.35,177679.75
+,,,,,,,,,,,,,,,,,,,,,211.51,252.13,30759.86
+,,,,,,,,,,,,,,,,,,,,,398.27,784.92,280216.44
+,,,,,,,,,,,,,,,,,,,,,167.64,289.31,121799.51
+,,,,,,,,,,,,,,,,,,,,,661.07,826.16,397382.96
+,,,,,,,,,,,,,,,,,,,,,271.55,435.26,211101.1
+,,,,,,,,,,,,,,,,,,,,,606.35,674.2,321593.4
+,,,,,,,,,,,,,,,,,,,,,60.41,113.62,54083.12
+,,,,,,,,,,,,,,,,,,,,,429.45,631.38,91550.1
+,,,,,,,,,,,,,,,,,,,,,257.84,462.73,123548.91
+,,,,,,,,,,,,,,,,,,,,,492.54,594.88,170135.68
+,,,,,,,,,,,,,,,,,,,,,100.12,184.65,41361.6
+,,,,,,,,,,,,,,,,,,,,,632.16,742.14,110578.86
+,,,,,,,,,,,,,,,,,,,,,496.72,865.54,349678.16
+,,,,,,,,,,,,,,,,,,,,,140.48,232.41,69955.41
+,,,,,,,,,,,,,,,,,,,,,97.71,113.8,46202.8
+,,,,,,,,,,,,,,,,,,,,,29.37,43.17,8936.19
+,,,,,,,,,,,,,,,,,,,,,357.55,649.13,166826.41
+,,,,,,,,,,,,,,,,,,,,,552.68,614.95,203548.45
+,,,,,,,,,,,,,,,,,,,,,322.66,555.76,56687.52
+,,,,,,,,,,,,,,,,,,,,,208.8,247.31,83838.09
+,,,,,,,,,,,,,,,,,,,,,238.85,403.09,118105.37
+,,,,,,,,,,,,,,,,,,,,,398.1,602.59,266947.37
+,,,,,,,,,,,,,,,,,,,,,305.41,506.83,130762.14
+,,,,,,,,,,,,,,,,,,,,,685.03,988.03,285540.67
+,,,,,,,,,,,,,,,,,,,,,135.98,153.71,8761.47
+,,,,,,,,,,,,,,,,,,,,,386.88,701.24,291715.84
+,,,,,,,,,,,,,,,,,,,,,260.79,416.23,21227.73
+,,,,,,,,,,,,,,,,,,,,,319.26,439.64,50118.96
+,,,,,,,,,,,,,,,,,,,,,591.91,723.25,294362.75
+,,,,,,,,,,,,,,,,,,,,,594.83,698.59,157881.34
+,,,,,,,,,,,,,,,,,,,,,514.71,991.43,192337.42
+,,,,,,,,,,,,,,,,,,,,,91.48,145.83,49144.71
+,,,,,,,,,,,,,,,,,,,,,89.95,122.03,8664.13
+,,,,,,,,,,,,,,,,,,,,,367.21,729.85,45980.55
+,,,,,,,,,,,,,,,,,,,,,354.72,586.82,278152.68
+,,,,,,,,,,,,,,,,,,,,,197.78,288.68,136545.64
+,,,,,,,,,,,,,,,,,,,,,53.15,97.83,27490.23
+,,,,,,,,,,,,,,,,,,,,,67.48,103.95,15696.45
+,,,,,,,,,,,,,,,,,,,,,797.36,896.31,87838.38
+,,,,,,,,,,,,,,,,,,,,,180.38,208.03,12065.74
+,,,,,,,,,,,,,,,,,,,,,226.19,336.9,78160.8
+,,,,,,,,,,,,,,,,,,,,,199.61,242.12,76994.16
+,,,,,,,,,,,,,,,,,,,,,295.82,367.9,96389.8
+,,,,,,,,,,,,,,,,,,,,,66.06,88.04,41026.64
+,,,,,,,,,,,,,,,,,,,,,426.42,528.68,187681.4
+,,,,,,,,,,,,,,,,,,,,,48.13,86.26,18114.6
+,,,,,,,,,,,,,,,,,,,,,665.46,804.35,201087.5
+,,,,,,,,,,,,,,,,,,,,,201.79,249.04,77202.4
+,,,,,,,,,,,,,,,,,,,,,460.88,549.21,201010.86
+,,,,,,,,,,,,,,,,,,,,,454.36,882.48,85600.56
+,,,,,,,,,,,,,,,,,,,,,538.88,657.86,236171.74
+,,,,,,,,,,,,,,,,,,,,,411.1,542.3,103579.3
+,,,,,,,,,,,,,,,,,,,,,214.72,337.85,93922.3
+,,,,,,,,,,,,,,,,,,,,,299.84,346.34,126760.44
+,,,,,,,,,,,,,,,,,,,,,341.25,676.1,315738.7
+,,,,,,,,,,,,,,,,,,,,,760.51,994.26,218737.2
+,,,,,,,,,,,,,,,,,,,,,370.37,668.6,109650.4
+,,,,,,,,,,,,,,,,,,,,,335.5,566.63,40797.36
+,,,,,,,,,,,,,,,,,,,,,410.67,736.04,245837.36
+,,,,,,,,,,,,,,,,,,,,,238.14,475.9,189408.2
+,,,,,,,,,,,,,,,,,,,,,59.18,78.94,24471.4
+,,,,,,,,,,,,,,,,,,,,,368.93,571.05,281527.65
+,,,,,,,,,,,,,,,,,,,,,765.46,958.47,276997.83
+,,,,,,,,,,,,,,,,,,,,,117.78,191.8,49676.2
+,,,,,,,,,,,,,,,,,,,,,394.62,696.2,298669.8
+,,,,,,,,,,,,,,,,,,,,,183.89,216.92,77440.44
+,,,,,,,,,,,,,,,,,,,,,422.96,545.11,130826.4
+,,,,,,,,,,,,,,,,,,,,,59.5,114.74,44174.9
+,,,,,,,,,,,,,,,,,,,,,261.71,461.36,31833.84
+,,,,,,,,,,,,,,,,,,,,,573.75,761.04,368343.36
+,,,,,,,,,,,,,,,,,,,,,282.71,360.62,138838.7
+,,,,,,,,,,,,,,,,,,,,,360.62,671.61,121561.41
+,,,,,,,,,,,,,,,,,,,,,654.65,799.54,291832.1
+,,,,,,,,,,,,,,,,,,,,,574.89,928.63,280446.26
+,,,,,,,,,,,,,,,,,,,,,185.85,249.95,123225.35
+,,,,,,,,,,,,,,,,,,,,,295.24,411.33,59642.85
+,,,,,,,,,,,,,,,,,,,,,138.75,169.37,13549.6
+,,,,,,,,,,,,,,,,,,,,,730.08,992.63,330545.79
+,,,,,,,,,,,,,,,,,,,,,729.5,928.46,64992.2
+,,,,,,,,,,,,,,,,,,,,,276.4,549.16,76882.4
+,,,,,,,,,,,,,,,,,,,,,635.71,845.19,271305.99
+,,,,,,,,,,,,,,,,,,,,,368.35,530.54,167650.64
+,,,,,,,,,,,,,,,,,,,,,452.96,631.11,253075.11
+,,,,,,,,,,,,,,,,,,,,,89.99,107.34,8157.84
+,,,,,,,,,,,,,,,,,,,,,507.43,760.17,222729.81
+,,,,,,,,,,,,,,,,,,,,,75.72,145.16,68515.52
+,,,,,,,,,,,,,,,,,,,,,622.87,829.55,91250.5
+,,,,,,,,,,,,,,,,,,,,,538.53,786.39,86502.9
+,,,,,,,,,,,,,,,,,,,,,576.47,714.57,177213.36
+,,,,,,,,,,,,,,,,,,,,,48.52,55.44,5211.36
+,,,,,,,,,,,,,,,,,,,,,214.58,317.07,156315.51
+,,,,,,,,,,,,,,,,,,,,,217.21,277.85,41399.65
+,,,,,,,,,,,,,,,,,,,,,279.26,372.93,184973.28
+,,,,,,,,,,,,,,,,,,,,,77.85,105.89,34308.36
+,,,,,,,,,,,,,,,,,,,,,664.13,938.22,207346.62
+,,,,,,,,,,,,,,,,,,,,,464.51,562.73,187389.09
+,,,,,,,,,,,,,,,,,,,,,194.89,319.41,152677.98
+,,,,,,,,,,,,,,,,,,,,,325.72,409.04,33132.24
+,,,,,,,,,,,,,,,,,,,,,375.61,458.26,205758.74
+,,,,,,,,,,,,,,,,,,,,,305.96,608.58,178313.94
+,,,,,,,,,,,,,,,,,,,,,316.32,525.37,178100.43
+,,,,,,,,,,,,,,,,,,,,,811.71,921,415371
+,,,,,,,,,,,,,,,,,,,,,307.42,507.02,246411.72
+,,,,,,,,,,,,,,,,,,,,,609.5,992.31,328454.61
+,,,,,,,,,,,,,,,,,,,,,677.24,854.4,216163.2
+,,,,,,,,,,,,,,,,,,,,,150.63,224.34,30958.92
+,,,,,,,,,,,,,,,,,,,,,637.01,931.98,264682.32
+,,,,,,,,,,,,,,,,,,,,,100.99,134.04,53616
+,,,,,,,,,,,,,,,,,,,,,587.84,821.1,390022.5
+,,,,,,,,,,,,,,,,,,,,,231.97,393.01,52663.34
+,,,,,,,,,,,,,,,,,,,,,738.05,880.41,169919.13
+,,,,,,,,,,,,,,,,,,,,,741.39,870.7,176752.1
+,,,,,,,,,,,,,,,,,,,,,510.47,809.81,88269.29
+,,,,,,,,,,,,,,,,,,,,,676.93,794.23,143755.63
+,,,,,,,,,,,,,,,,,,,,,163.61,318.59,72957.11
+,,,,,,,,,,,,,,,,,,,,,83.25,99.3,7149.6
+,,,,,,,,,,,,,,,,,,,,,228.98,414.92,185469.24
+,,,,,,,,,,,,,,,,,,,,,170.67,190.05,22235.85
+,,,,,,,,,,,,,,,,,,,,,534.02,701.05,172458.3
+,,,,,,,,,,,,,,,,,,,,,210.47,359.18,72913.54
+,,,,,,,,,,,,,,,,,,,,,489.54,976.1,362133.1
+,,,,,,,,,,,,,,,,,,,,,463.73,648.15,275463.75
+,,,,,,,,,,,,,,,,,,,,,619.66,826.03,45431.65
+,,,,,,,,,,,,,,,,,,,,,130.82,149.87,72986.69
+,,,,,,,,,,,,,,,,,,,,,701.74,864.77,169494.92
+,,,,,,,,,,,,,,,,,,,,,642.36,924.3,428875.2
+,,,,,,,,,,,,,,,,,,,,,375.11,497.32,229761.84
+,,,,,,,,,,,,,,,,,,,,,499.92,614.13,87820.59
+,,,,,,,,,,,,,,,,,,,,,675.17,769.51,340123.42
+,,,,,,,,,,,,,,,,,,,,,161.51,191.34,77492.7
+,,,,,,,,,,,,,,,,,,,,,429.77,512.51,152727.98
+,,,,,,,,,,,,,,,,,,,,,346.71,410.69,103493.88
+,,,,,,,,,,,,,,,,,,,,,85.24,163.45,27296.15
+,,,,,,,,,,,,,,,,,,,,,221.38,380.18,120136.88
+,,,,,,,,,,,,,,,,,,,,,64.04,86.81,16233.47
+,,,,,,,,,,,,,,,,,,,,,30.7,45.3,19071.3
+,,,,,,,,,,,,,,,,,,,,,129.74,152.46,52598.7
+,,,,,,,,,,,,,,,,,,,,,817.71,963.85,295901.95
+,,,,,,,,,,,,,,,,,,,,,296.25,558.54,161418.06
+,,,,,,,,,,,,,,,,,,,,,761.74,966.51,100517.04
+,,,,,,,,,,,,,,,,,,,,,356.66,443.85,52374.3
+,,,,,,,,,,,,,,,,,,,,,221.8,325.58,67395.06
+,,,,,,,,,,,,,,,,,,,,,278.18,516.02,203827.9
+,,,,,,,,,,,,,,,,,,,,,361.46,450.72,59945.76
+,,,,,,,,,,,,,,,,,,,,,87.2,123.55,50037.75
+,,,,,,,,,,,,,,,,,,,,,401.67,648.01,84889.31
+,,,,,,,,,,,,,,,,,,,,,201.09,231.72,82260.6
+,,,,,,,,,,,,,,,,,,,,,403.5,627.2,223910.4
+,,,,,,,,,,,,,,,,,,,,,368.56,657.2,105152
+,,,,,,,,,,,,,,,,,,,,,135.69,168.98,40386.22
+,,,,,,,,,,,,,,,,,,,,,60.28,80.12,29404.04
+,,,,,,,,,,,,,,,,,,,,,417.91,785.15,273232.2
+,,,,,,,,,,,,,,,,,,,,,282.49,470.6,166121.8
+,,,,,,,,,,,,,,,,,,,,,57.05,77,34573
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,468422.7
