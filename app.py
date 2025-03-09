@@ -111,6 +111,14 @@ def login():
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html')
 
+# Define the logout route
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('home'))
+
 @app.route('/upload_csv', methods=['GET', 'POST'])
 @login_required
 def upload_csv():
