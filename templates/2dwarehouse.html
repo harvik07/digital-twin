@@ -3,124 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D Warehouse Model</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <title>2D Warehouse Layout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .shelf { stroke: #000; stroke-width: 1px; }
-        .low-stock { fill: red; }
-        .middle-stock { fill: yellow; }
-        .sufficient-stock { fill: green; }
-        .text { font-size: 12px; text-anchor: middle; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fff; /* Set background to white */
+            overflow: auto; /* Ensure the layout is scrollable if it exceeds the viewport height */
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2cm; /* Add space from the top */
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #5c67f2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #4a54e1;
+        }
+        .warehouse-layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .shelf {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            width: 80px; /* Reduced width */
+            text-align: center;
+            font-size: 10px; /* Reduced font size */
+        }
+        .low-stock {
+            background-color: red;
+        }
+        .middle-stock {
+            background-color: yellow;
+        }
+        .sufficient-stock {
+            background-color: green;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1 class="logo">TwinWare</h1>
+    </header>
     <div class="container">
-        <h1>2D Warehouse Model</h1>
-        <div id="warehouse2D"></div>
-        <button onclick="downloadPNG()">Download Layout as PNG</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Shelf Number</th>
-                    <th>Product Name</th>
-                    <th>Quantity Available</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in warehouse_data %}
-                <tr>
-                    <td>{{ item['Shelf Number'] }}</td>
-                    <td>{{ item['Product Name'] }}</td>
-                    <td>{{ item['Quantity Available'] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h1>2D Warehouse Layout</h1>
+        <div class="warehouse-layout">
+            {% for item in warehouse_data %}
+                <div class="shelf {% if item['Quantity Available'] < 10 %}low-stock{% elif item['Quantity Available'] < 20 %}middle-stock{% else %}sufficient-stock{% endif %}">
+                    <h3>Shelf {{ item['Shelf Number'] }}</h3>
+                    <p>Product: {{ item['Product Name'] }}</p>
+                    <p>Quantity: {{ item['Quantity Available'] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <button class="btn" onclick="downloadPNG()">Download Layout as PNG</button>
     </div>
 
     <script>
-        const warehouseData = JSON.parse('{{ warehouse_data | tojson | safe }}');
-
-        const width = 1000;
-        const height = 800;
-        const shelfWidth = 120;
-        const shelfHeight = 80;
-
-        const svg = d3.select("#warehouse2D")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .attr("xmlns", "http://www.w3.org/2000/svg");
-
-        // Add a white background to the SVG
-        svg.append("rect")
-            .attr("width", "100%")
-            .attr("height", "100%")
-            .attr("fill", "white");
-
-        warehouseData.forEach((item, index) => {
-            const x = (index % 8) * shelfWidth;
-            const y = Math.floor(index / 8) * shelfHeight;
-
-            let stockClass;
-            if (item["Quantity Available"] < 10) {
-                stockClass = "low-stock";
-            } else if (item["Quantity Available"] < 20) {
-                stockClass = "middle-stock";
-            } else {
-                stockClass = "sufficient-stock";
-            }
-
-            svg.append("rect")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("width", shelfWidth)
-                .attr("height", shelfHeight)
-                .attr("class", `shelf ${stockClass}`);
-
-            svg.append("text")
-                .attr("x", x + shelfWidth / 2)
-                .attr("y", y + shelfHeight / 2 - 20)
-                .attr("class", "text")
-                .text(`${item["Shelf Number"]}`);
-
-            svg.append("text")
-                .attr("x", x + shelfWidth / 2)
-                .attr("y", y + shelfHeight / 2)
-                .attr("class", "text")
-                .text(`${item["Product Name"]}`);
-
-            svg.append("text")
-                .attr("x", x + shelfWidth / 2)
-                .attr("y", y + shelfHeight / 2 + 20)
-                .attr("class", "text")
-                .text(`${item["Quantity Available"]}`);
-        });
-
         function downloadPNG() {
-            const svgElement = document.querySelector("svg");
-            const svgData = new XMLSerializer().serializeToString(svgElement);
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-            const img = new Image();
-
-            img.onload = function() {
-                canvas.width = svgElement.clientWidth;
-                canvas.height = svgElement.clientHeight;
-                ctx.drawImage(img, 0, 0);
+            html2canvas(document.querySelector(".warehouse-layout")).then(canvas => {
                 const link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
                 link.download = "warehouse_layout.png";
                 link.click();
-            };
-
-            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+            });
         }
     </script>
 </body>

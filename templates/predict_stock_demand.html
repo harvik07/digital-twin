@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Predict Stock Demand</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #6a0dad;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Predicted Future Demand</h1>
-    <p>Future Demand: {{ future_demand }}</p>
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <div class="container">
+        <h1>Predicted Future Demand</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Future Demand</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product, demand in future_demand.items() %}
+                <tr>
+                    <td>{{ product }}</td>
+                    <td>{{ demand }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

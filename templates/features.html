@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url("{{ url_for('static', filename='css/image/warehouse_background2.png.webp') }}") no-repeat center center/cover;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #5c67f2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #4a54e1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">TwinWare</h1>
+    </header>
+    <div class="container">
+        <h1>Features</h1>
+        <a href="{{ url_for('visualization', filename=filename) }}" class="btn">Go to Visualization</a>
+        <a href="{{ url_for('warehouse_2d_model', filename=filename) }}" class="btn">Go to 2D Layout</a>
+        <a href="{{ url_for('search_layout', filename=filename) }}" class="btn">Go to Search and Filter</a>
+        <a href="{{ url_for('generate_report', filename=filename) }}" class="btn">Go to Report</a>
+        <a href="{{ url_for('predict_stock_demand', filename=filename) }}" class="btn">Go to Predict Future Sales</a>
+        <a href="{{ url_for('recommend_stock', filename=filename) }}" class="btn">Go to Future Stock Demand</a>
+        <a href="{{ url_for('visualize_trends', filename=filename) }}" class="btn">Go to Visualize Trends</a>
+    </div>
+</body>
+</html>

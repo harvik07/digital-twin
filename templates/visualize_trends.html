@@ -3,10 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Visualize Trends</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #5c0cad;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sales Trend</h1>
-    <img src="{{ url_for('static', filename='charts/' + trend_chart_url) }}" alt="Sales Trend">
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <div class="container">
+        <h1>Sales Trend</h1>
+        <img src="{{ url_for('static', filename='charts/' + trend_chart_url) }}" alt="Sales Trend">
+        <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+    </div>
 </body>
 </html>

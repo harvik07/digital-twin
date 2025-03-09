@@ -1,49 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization</title>
+    <title>Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f0f2f5; /* Light background color */
+            overflow: auto; /* Ensure the layout is scrollable if it exceeds the viewport height */
+        }
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2cm; /* Add space from the top */
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 25%; /* 25% width */
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chart-container {
+            width: 75%; /* 75% width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2em;
+            color: #6a0dad;
+            margin: 20px 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+            width: 100%; /* Ensure the heading takes full width */
+            text-align: center; /* Center the heading */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%; /* Ensure the form takes full width */
+        }
+        label {
+            font-size: 1em;
+            color: #555;
+            width: 100%; /* Ensure the label takes full width */
+            text-align: left; /* Align the label to the left */
+        }
+        select, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            background-color: #6a0dad;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5c0cad;
+        }
+        .chart {
+            margin-top: 20px;
+        }
+        .chart img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <h1>Data Visualization for {{ filename }}</h1>
-
-    <form method="POST">
-        <label for="chart_type">Select Chart Type:</label>
-        <select name="chart_type" id="chart_type" required>
-            <option value="bar">Bar Chart</option>
-            <option value="line">Line Chart</option>
-            <option value="pie">Pie Chart</option>
-            <option value="heatmap">Heatmap</option>
-            <option value="histogram">Histogram</option>
-            <option value="scatter">Scatter Plot</option>
-            <option value="box">Box Plot</option>
-        </select>
-
-        <label for="x_column">Select X Column:</label>
-        <select name="x_column" id="x_column" required>
-            {% for column in columns %}
-                <option value="{{ column }}">{{ column }}</option>
-            {% endfor %}
-        </select>
-
-        <label for="y_column">Select Y Column:</label>
-        <select name="y_column" id="y_column" required>
-            {% for column in columns %}
-                <option value="{{ column }}">{{ column }}</option>
-            {% endfor %}
-        </select>
-
-        <button type="submit">Generate Chart</button>
-    </form>
-
-    {% if chart_url %}
-        <h2>Generated Chart</h2>
-        <img src="{{ url_for('static', filename='charts/' + chart_url) }}" alt="Chart">
-        
-        <h3>Download Chart</h3>
-        <a href="{{ url_for('static', filename='charts/' + chart_url) }}" download>Download Chart</a>
-    {% endif %}
+    <header>
+        <h1 class="logo">TwinWare</h1>
+    </header>
+    <div class="main-container">
+        <div class="container">
+            <h1>Visualization</h1>
+            <form method="POST">
+                <label for="chart_type">Chart Type:</label>
+                <select name="chart_type" id="chart_type" required>
+                    <option value="bar">Bar</option>
+                    <option value="line">Line</option>
+                    <option value="pie">Pie</option>
+                    <option value="heatmap">Heatmap</option>
+                    <option value="histogram">Histogram</option>
+                    <option value="scatter">Scatter</option>
+                    <option value="box">Box</option>
+                </select>
+                <label for="x_column">X Column:</label>
+                <select name="x_column" id="x_column" required>
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+                <label for="y_column">Y Column:</label>
+                <select name="y_column" id="y_column" required>
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Generate Chart</button>
+            </form>
+        </div>
+        <div class="chart-container">
+            {% if chart_url %}
+                <div class="chart">
+                    <img src="{{ url_for('static', filename='charts/' ~ chart_url) }}" alt="Generated Chart">
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
