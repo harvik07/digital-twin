@@ -14,16 +14,30 @@
             height: 100vh;
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: #fff; /* Set background to white */
+            background: linear-gradient(to bottom, #f4f4f4, #e0e0e0); /* Subtle gradient background */
             overflow: auto; /* Ensure the layout is scrollable if it exceeds the viewport height */
+        }
+        header {
+            width: 100%;
+            background-color: #5c67f2;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
+            
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 2cm; /* Add space from the top */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 50px; /* Increase space between the title and layout */
+            width: 90%;
+            max-width: 1200px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
         }
         .btn {
             display: inline-block;
@@ -34,43 +48,94 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .btn:hover {
             background-color: #4a54e1;
+            transform: scale(1.05);
         }
         .warehouse-layout {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin-top: 20px;
+            gap: 10px; /* Add spacing between shelves */
         }
         .shelf {
             border: 1px solid #ccc;
-            padding: 5px;
-            margin: 5px;
+            padding: 10px;
             background-color: #f9f9f9;
-            border-radius: 5px;
-            width: 80px; /* Reduced width */
+            border-radius: 10px;
+            width: 100px; /* Adjusted width */
             text-align: center;
-            font-size: 10px; /* Reduced font size */
+            font-size: 12px; /* Adjusted font size */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .shelf:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .low-stock {
-            background-color: red;
+            background-color: #ffcccc;
+            border: 1px solid #bc2929;
         }
         .middle-stock {
-            background-color: yellow;
+            background-color: #fff4cc;
+            border: 1px solid #e6a627;
         }
         .sufficient-stock {
-            background-color: green;
+            background-color: #ccffcc;
+            border: 1px solid #40bd40;
+        }
+        .shelf h3 {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .shelf p {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #555;
+        }
+        .stock-legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            width: 120px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="logo">TwinWare</h1>
+        <h1 class="logo">TwinWare - 2D Warehouse Layout</h1>
     </header>
     <div class="container">
-        <h1>2D Warehouse Layout</h1>
+        <!-- Stock Legend -->
+        <div class="stock-legend">
+            <div class="legend-item low-stock">
+                <span>Low Stock</span>
+            </div>
+            <div class="legend-item middle-stock">
+                <span>Middle Stock</span>
+            </div>
+            <div class="legend-item sufficient-stock">
+                <span>Sufficient Stock</span>
+            </div>
+        </div>
+
+        <!-- Warehouse Layout -->
         <div class="warehouse-layout">
             {% for item in warehouse_data %}
                 <div class="shelf {% if item['Quantity Available'] < 10 %}low-stock{% elif item['Quantity Available'] < 20 %}middle-stock{% else %}sufficient-stock{% endif %}">

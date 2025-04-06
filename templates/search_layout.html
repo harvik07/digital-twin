@@ -15,11 +15,11 @@
             height: 100vh;
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: url("{{ url_for('static', filename='css/image/warehouse_background2.png.webp') }}") no-repeat center center/cover;
+            
         }
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
+            
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -78,10 +78,17 @@
     <header>
         <h1 class="logo">TwinWare</h1>
     </header>
+
     <div class="container">
         <h1>Search and Filter Warehouse Layout</h1>
-        <input type="text" id="searchInput" placeholder="Enter product name">
-        <button onclick="searchProduct()" class="btn">Search</button>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter product name">
+            <button onclick="searchProduct()" class="btn">Search</button>
+        </div>
+
+        <!-- Warehouse Layout -->
         <div id="warehouse2D"></div>
         <div id="message"></div>
         <div class="warehouse-layout">
