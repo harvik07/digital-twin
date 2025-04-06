@@ -13,9 +13,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start; /* Align content to the top */
+    min-height: 100vh; /* Allow content to expand beyond the viewport */
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #f4f4f4, #e0e0e0); /* Subtle gradient background */
+    background: url("{{ url_for('static', filename='css/image/warehouse_background2.png.webp') }}") no-repeat center center/cover;
 }
 
 header {
@@ -29,8 +31,9 @@ header {
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
+    padding-top: 40px; /* Add padding to the top */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -184,6 +187,7 @@ header {
     padding: 20px;
     border: 2px dashed #3b82f6;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Drop Area */
@@ -207,23 +211,42 @@ button {
 /* Search Container */
 .search-container {
     margin-bottom: 20px; /* Add spacing below the search container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Add spacing above the search container */
+    z-index: 10; /* Ensure it appears above other elements */
+    position: relative; /* Ensure proper stacking context */
+    background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent background */
+    padding: 10px; /* Add padding for better visibility */
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    border: 2px solid red; /* Add a red border for debugging */
+    height: auto; /* Ensure it has enough height */
+    width: auto; /* Ensure it has enough width */
 }
 
+/* Input Field */
 .search-container input {
     width: 300px;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid #ccc; /* Neutral border color */
     border-radius: 5px;
     outline: none;
     margin-right: 10px;
     transition: border-color 0.3s;
+    background-color: white; /* Ensure input has a visible background */
+    color: #333; /* Ensure text is visible */
+    z-index: 11; /* Ensure it appears above other elements */
 }
 
+/* Input Field Focus State */
 .search-container input:focus {
-    border-color: #5c67f2;
+    border-color: #5c67f2; /* Highlight border on focus */
 }
 
+/* Search Button */
 .search-container .btn {
     padding: 10px 20px;
     background-color: #5c67f2;
@@ -233,11 +256,45 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    z-index: 11; /* Ensure it appears above other elements */
 }
 
+/* Search Button Hover State */
 .search-container .btn:hover {
     background-color: #4a54e1;
     transform: scale(1.05);
+}
+
+/* Warehouse Layout */
+.warehouse-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 60px; /* Add spacing above the warehouse layout */
+    margin-bottom: 20px; /* Add spacing below the warehouse layout */
+    z-index: 1; /* Ensure it doesn't overlap the search container */
+}
+
+/* Shelf Styling */
+.shelf {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shelf:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shelf.highlight {
+    background-color: yellow; /* Highlight color for matching shelves */
+    border: 2px solid #5c67f2;
 }
 
 /* Stock Legend */
@@ -253,6 +310,7 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Legend Item */
 .legend-item {
     display: flex;
     align-items: center;
@@ -263,6 +321,7 @@ button {
     font-weight: bold;
     color: #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .legend-item.low-stock {
@@ -290,24 +349,5 @@ button {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Warehouse Layout */
-.warehouse-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px; /* Add spacing above the warehouse layout */
-}
 
-.shelf {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    width: 150px;
-    text-align: center;
-}
 
-.highlight {
-    background-color: yellow;
-}

@@ -11,37 +11,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-start; /* Align content to the top */
+            min-height: 100vh; /* Allow content to expand beyond the viewport */
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            
+            background: url("{{ url_for('static', filename='css/image/warehouse_background2.png.webp') }}") no-repeat center center/cover;
+            padding-top: 60px; /* Add padding to prevent cutting off */
+        }
+        header {
+            width: 100%;
+            background-color: #5c67f2;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add spacing below the header */
         }
         .container {
             text-align: center;
-            
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
+            padding-top: 40px; /* Add padding to the top */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #5c67f2;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .btn:hover {
-            background-color: #4a54e1;
+            margin-top: 20px; /* Add spacing from the top of the page */
+            width: 90%;
+            max-width: 1200px;
         }
         .warehouse-layout {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 40px; /* Add spacing above the warehouse layout */
+            margin-bottom: 20px; /* Add spacing below the warehouse layout */
         }
         .shelf {
             border: 1px solid #ccc;
@@ -55,22 +57,45 @@
         .highlight {
             background-color: yellow;
         }
-        .text {
-            font-size: 12px;
-            text-anchor: middle;
+        .search-container {
+            margin-top: 20px; /* Add spacing above the search container */
+            margin-bottom: 20px; /* Add spacing below the search container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+            transition: border-color 0.3s;
+            background-color: white;
+            color: #333;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+        .search-container input:focus {
+            border-color: #5c67f2;
         }
-        th {
-            background-color: #f2f2f2;
+        .search-container .btn {
+            padding: 10px 20px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .search-container .btn:hover {
+            background-color: #4a54e1;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -82,15 +107,7 @@
     <div class="container">
         <h1>Search and Filter Warehouse Layout</h1>
 
-        <!-- Search Container -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Enter product name">
-            <button onclick="searchProduct()" class="btn">Search</button>
-        </div>
-
         <!-- Warehouse Layout -->
-        <div id="warehouse2D"></div>
-        <div id="message"></div>
         <div class="warehouse-layout">
             {% for item in warehouse_data %}
                 <div class="shelf" id="shelf-{{ loop.index0 }}">
@@ -100,6 +117,15 @@
                 </div>
             {% endfor %}
         </div>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter product name">
+            <button onclick="searchProduct()" class="btn">Search</button>
+        </div>
+
+        <!-- Message for search results -->
+        <div id="message" style="color: red; margin-top: 10px;"></div>
     </div>
 
     <script>
@@ -114,6 +140,7 @@
                 shelf.classList.remove("highlight");
             });
 
+            // Search for the product and highlight the shelf
             warehouseData.forEach((item, index) => {
                 const shelf = document.getElementById(`shelf-${index}`);
                 if (item["Product Name"].toLowerCase().includes(searchInput)) {
@@ -122,9 +149,10 @@
                 }
             });
 
+            // Display a message if the product is not found
             const message = document.getElementById("message");
             if (found) {
-                message.textContent = "";
+                message.textContent = ""; // Clear the message if a product is found
             } else {
                 message.textContent = "Product not found in warehouse.";
             }
