@@ -1,4 +1,6 @@
 🏭 Digital Twin for Intelligent Warehousing
+
+
 An interactive, web-based digital twin system designed to streamline warehouse management through real-time visualizations, predictive analytics, and automated reporting. This system bridges physical inventory with intelligent digital insights, providing decision-makers with a powerful tool for modern supply chain optimization.
 
 🚀 Features
@@ -21,9 +23,9 @@ An interactive, web-based digital twin system designed to streamline warehouse m
 ⚙️ Modular & Scalable Architecture: Built with a layered backend and responsive frontend.
 
 🧠 Technology Stack
-Frontend: React.js / Streamlit (for prototypes)
+Frontend: CSS
 
-Backend: Python (Flask/FastAPI)
+Backend: Python Flask
 
 Database: SQLite / PostgreSQL
 
@@ -34,6 +36,7 @@ Visualization: HTML5 Canvas / SVG, D3.js (optional)
 Exporting: Pandas + Jinja2 for PDF/Excel generation
 
 🖼 System Architecture
+
 User Interface Layer – Secure login, CSV uploader, visualization panel.
 
 Preprocessing Layer – Cleans and validates uploaded data.
